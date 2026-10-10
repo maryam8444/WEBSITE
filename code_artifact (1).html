@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة المحقق الصغير - الفهم القرائي والتراكيب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Readex+Pro:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Readex Pro', 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+            min-height: 100vh;
+        }
+
+        .cartoon-card {
+            background: #FFFFFF;
+            border: 4px solid #3B82F6;
+            box-shadow: 0 12px 0 0 #1D4ED8;
+            border-radius: 2rem;
+        }
+
+        .cartoon-btn {
+            border: 3px solid #1E293B;
+            box-shadow: 0 6px 0 0 #0F172A;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .cartoon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 0 #0F172A;
+        }
+
+        .cartoon-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 0 #0F172A;
+        }
+
+        .opt-btn {
+            border: 3px solid #E2E8F0;
+            box-shadow: 0 5px 0 0 #CBD5E1;
+            transition: all 0.15s ease;
+        }
+
+        .opt-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 0 #94A3B8;
+            border-color: #3B82F6;
+            background-color: #EFF6FF;
+        }
+
+        .certificate-border {
+            border: 8px dashed #F59E0B;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-pulse {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-3 md:p-6">
+
+    <div id="app" class="w-full max-w-4xl cartoon-card overflow-hidden my-2 relative">
+        
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 p-5 md:p-6 text-center relative border-b-4 border-slate-900">
+            <div class="absolute top-2 left-4 text-4xl md:text-5xl badge-pulse">🕵️‍♂️🔎</div>
+            <div class="absolute top-2 right-4 text-4xl md:text-5xl badge-pulse">🌟✨</div>
+            
+            <span class="inline-block bg-slate-900 text-amber-300 font-extrabold px-4 py-1 rounded-full text-xs md:text-sm mb-2 shadow">
+                المملكة العربية السعودية - وزارة التعليم
+            </span>
+            <h1 class="text-2xl md:text-4xl font-black text-slate-900 drop-shadow-md mb-2">
+                🕵️‍♀️ مبادرة المحقق الصغير 🔍
+            </h1>
+            <p class="text-slate-900 font-bold text-sm md:text-base bg-white/60 inline-block px-4 py-1 rounded-2xl">
+                الفهم القرائي والتراكيب واللغويات - للصف الثالث الابتدائي
+            </p>
+
+            <div class="mt-3 flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm font-bold text-slate-800">
+                <span class="bg-white/80 px-3 py-1 rounded-xl shadow-sm border border-orange-200">🏫 المدرسة: الابتدائية 185</span>
+                <span class="bg-white/80 px-3 py-1 rounded-xl shadow-sm border border-orange-200">👑 المديرة: منى الزبن</span>
+                <span class="bg-white/80 px-3 py-1 rounded-xl shadow-sm border border-orange-200">⭐ المنسقة: مريم الذبياني</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="p-4 md:p-8 bg-amber-50/50">
+
+            <!-- STEP 1: Registration Screen -->
+            <div id="screen-register" class="space-y-6 text-center py-4">
+                <div class="bg-gradient-to-b from-sky-100 to-indigo-100 p-6 md:p-8 rounded-3xl border-4 border-sky-400 shadow-xl max-w-xl mx-auto">
+                    <div class="text-6xl mb-3 animate-bounce">🕵️‍♀️🎨</div>
+                    <h2 class="text-2xl md:text-3xl font-black text-indigo-950 mb-2">أهلاً بكِ يا بطلة التحقيق!</h2>
+                    <p class="text-indigo-800 font-semibold text-sm md:text-base mb-6">اكتبي اسمكِ الجميل لتنطلقي في كشف أسرار النصوص والمهمات الذكية:</p>
+                    
+                    <div class="space-y-4 text-right">
+                        <div>
+                            <label class="block text-sm font-black text-indigo-950 mb-1">✍️ اسم الطالبة الثلاثي:</label>
+                            <input type="text" id="student-name" placeholder="اكتبي اسمكِ هنا..." class="w-full px-4 py-3 rounded-2xl border-4 border-indigo-300 focus:outline-none focus:border-indigo-600 text-center text-lg font-black text-indigo-950 shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-black text-indigo-950 mb-1">🎒 الصف والفصل:</label>
+                            <input type="text" id="student-class" placeholder="مثال: الثالث الابتدائي (1)" class="w-full px-4 py-3 rounded-2xl border-4 border-indigo-300 focus:outline-none focus:border-indigo-600 text-center text-lg font-black text-indigo-950 shadow-inner">
+                        </div>
+                        <button onclick="startMissions()" class="cartoon-btn w-full bg-emerald-400 hover:bg-emerald-500 text-slate-900 font-black py-4 px-6 rounded-2xl text-xl mt-4 cursor-pointer">
+                            🚀 انطلقي للمهمات!
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Mission Hub Selection -->
+            <div id="screen-hub" class="hidden space-y-6">
+                <div class="flex flex-wrap justify-between items-center bg-white p-4 rounded-2xl border-4 border-indigo-300 shadow-md">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🕵️‍♀️</span>
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 block">المحققة البطلة</span>
+                            <span id="display-name" class="text-lg font-black text-indigo-900"></span>
+                            <span class="text-xs font-bold text-emerald-600 mr-2">(<span id="display-class"></span>)</span>
+                        </div>
+                    </div>
+                    <div class="bg-amber-300 text-slate-900 px-4 py-2 rounded-2xl font-black text-base border-2 border-slate-900 shadow mt-2 sm:mt-0">
+                        ⭐ النجوم: <span id="total-stars" class="text-xl">0</span>
+                    </div>
+                </div>
+
+                <h3 class="text-xl md:text-2xl font-black text-center text-indigo-950 bg-yellow-200 py-2 px-6 rounded-2xl border-2 border-slate-900 w-fit mx-auto">
+                    📂 اختاري ملف قضية التحقيق:
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="missions-grid">
+                    <!-- Missions dynamically rendered -->
+                </div>
+            </div>
+
+            <!-- STEP 3: Quiz Game Screen -->
+            <div id="screen-quiz" class="hidden space-y-6">
+                <div class="flex justify-between items-center bg-white p-3 md:p-4 rounded-2xl border-3 border-indigo-200 shadow-sm text-sm">
+                    <button onclick="returnToHub()" class="cartoon-btn bg-rose-400 hover:bg-rose-500 text-slate-900 font-black px-4 py-2 rounded-xl text-xs md:text-sm">
+                        ⬅️ عودة للقائمة
+                    </button>
+                    <span id="mission-title-badge" class="font-black text-indigo-950 text-base md:text-lg"></span>
+                    <span class="bg-purple-200 text-purple-900 border border-purple-400 px-3 py-1 rounded-2xl font-black text-xs md:text-sm">
+                        سؤال <span id="current-q-num">1</span> من <span id="total-q-num">6</span>
+                    </span>
+                </div>
+
+                <!-- Text Excerpt Box -->
+                <div class="bg-sky-100 p-5 rounded-3xl border-4 border-sky-300 shadow-sm relative">
+                    <span class="absolute -top-3 right-6 bg-sky-500 text-white font-black text-xs px-3 py-1 rounded-full border border-slate-900">
+                        📜 نص قضية التحقيق
+                    </span>
+                    <p id="excerpt-text" class="text-slate-800 text-base md:text-lg leading-relaxed font-bold mt-2"></p>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white p-6 rounded-3xl border-4 border-indigo-300 shadow-md">
+                    <div class="flex items-start gap-3 mb-4">
+                        <span class="text-3xl">❓</span>
+                        <h3 id="question-text" class="text-lg md:text-xl font-black text-indigo-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Randomized Options Container -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Feedback / Next Button -->
+                <div id="feedback-area" class="hidden p-4 rounded-2xl text-center font-black text-lg shadow-sm"></div>
+                
+                <div class="flex justify-end">
+                    <button id="next-btn" onclick="nextQuestion()" class="cartoon-btn hidden bg-emerald-400 hover:bg-emerald-500 text-slate-900 font-black py-3 px-8 rounded-2xl text-lg">
+                        السؤال التالي ➡️
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 4: Certificate Screen -->
+            <div id="screen-certificate" class="hidden space-y-6">
+                <div class="certificate-border bg-amber-50 p-6 md:p-8 rounded-3xl text-center relative overflow-hidden">
+                    <div class="absolute top-2 left-2 text-amber-500/30 text-7xl font-black">⭐</div>
+                    <div class="absolute bottom-2 right-2 text-amber-500/30 text-7xl font-black">🏆</div>
+                    
+                    <span class="bg-amber-200 text-amber-900 font-black text-xs md:text-sm px-4 py-1 rounded-full border border-amber-400 inline-block mb-2">
+                        🌟 وسام التميز القرائي
+                    </span>
+                    <h1 class="text-2xl md:text-4xl font-black text-amber-800 mb-3">شـهـادة تقـديـر وتـفـوق</h1>
+                    
+                    <p class="text-gray-700 text-sm font-bold mb-1">تمنح بكل فخر للمحققة الصغيرة المبدعة:</p>
+                    <div class="text-2xl md:text-3xl font-black text-indigo-950 border-b-4 border-dashed border-amber-400 pb-2 mb-2 inline-block px-8" id="cert-student-name"></div>
+                    <div class="text-sm font-black text-emerald-700 mb-4">الصف والفصل: <span id="cert-student-class"></span></div>
+                    
+                    <p class="text-gray-700 text-sm font-bold mb-3">لإنجازها مهمة: <strong id="cert-mission-title" class="text-indigo-900 underline"></strong> بنجاح وحصولها على:</p>
+                    
+                    <div class="bg-indigo-900 text-amber-300 text-3xl md:text-4xl font-black py-3 px-8 rounded-2xl shadow-xl inline-block border-2 border-amber-400 mb-6">
+                        <span id="final-score">0</span> / <span id="max-score">6</span> ⭐
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 border-t-2 border-amber-300 pt-4 text-xs md:text-sm text-slate-800 font-bold">
+                        <div>
+                            <p class="text-gray-500 font-semibold">المدرسة</p>
+                            <p class="text-indigo-900 mt-1">الابتدائية 185</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-semibold">مديرة المدرسة</p>
+                            <p class="text-indigo-900 mt-1">منى الزبن</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-semibold">منسقة المبادرة</p>
+                            <p class="text-indigo-900 mt-1">مريم الذبياني</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <button onclick="returnToHub()" class="cartoon-btn bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 px-8 rounded-2xl text-lg">
+                        📂 العودة لملفات القضايا
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Web Audio API Synthesizer
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'success') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.2); // A5
+                gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.35);
+            } else if (type === 'error') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(280, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(160, audioCtx.currentTime + 0.15);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else if (type === 'complete') {
+                const now = audioCtx.currentTime;
+                [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.frequency.setValueAtTime(freq, now + i * 0.1);
+                    g.gain.setValueAtTime(0.2, now + i * 0.1);
+                    g.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.25);
+                    o.start(now + i * 0.1);
+                    o.stop(now + i * 0.1 + 0.25);
+                });
+            }
+        }
+
+        // Expanded and meticulously checked curriculum database with 6 questions per mission
+        const missionsData = [
+            {
+                title: "عادل في الطائرة",
+                color: "from-sky-400 to-blue-500",
+                icon: "✈️",
+                excerpt: "دخل الوالد حاملاً تذاكر السفر، فأقبلت الأسرة بفرح واستعدت للرحلة. وصل الجميع المطار، ورأت امرأة تحمل طفلاً لم تجد مكاناً تجلس فيه، فقام عادل وأجلسها.. وصعد للطائرة برضا مستمعاً لتعليمات السلامة ودعاء السفر.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: ماذا تصرف عادل عندما رأى امرأة تحمل طفلاً ولا تجد مكاناً؟",
+                        options: ["قام عن مقعده وأجلسها فيه", "أخذ يركض في الصالة ويصيح", "طلب من والدته إعادتها للمنزل"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والتراكيب: ما معنى كلمة (استعدت) في جملة (استعدت الأسرة للرحلة)؟",
+                        options: ["تأهبت وتجهزت", "تأخرت وتكاسلت", "خافت وتراجعت"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما ضِد كلمة (صغيراً) في جملة (حقيبة يد صغيرة)؟",
+                        options: ["كبيراً", "قصيراً", "بطيئاً"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: كلمة (حَامِلاً) تحتوي على تنوين نوعه:",
+                        options: ["تنوين فتح", "تنوين ضم", "تنوين كسر"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الظواهر الإملائية: نوع الـ التعريف في كلمة (الطَّائِرَة) هي:",
+                        options: ["لام شمسية", "لام قمرية", "ليست لام تعريف"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "قيم وأخلاق: ماذا قال عادل والمسافرون عند ركوب وسائل السفر؟",
+                        options: ["دعاء السفر (سبحان الذي سخر لنا هذا...)", "أغاني السفر والحماس", "صمتوا ولم يقولوا شيئاً"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "عام دراسي جديد",
+                color: "from-emerald-400 to-teal-500",
+                icon: "🏫",
+                excerpt: "مع بداية العام الدراسي، طلب المعلم من التلاميذ أن يعرِّفوا بأنفسهم. قال أحمد: أتمنى أن أكون من المتفوقين، وقال المعلم: للتفوق أسباب منها أن تقرأ الدرس في اليوم السابق، وأن تتجنب المشاحنات والخصام.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: ما نصيحة المعلم لتكون من التلاميذ المتفوقين؟",
+                        options: ["قراءة الدرس في اليوم السابق والاستماع للشرح", "النوم أثناء الشرح واللعب طوال الحصة", "ترك الواجبات المدرسية وعدم فتح الكتاب"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات واللغويات: ما معنى كلمة (تَتَجَنَّب) في قول المعلم (علينا أن نتجنب الخصام)؟",
+                        options: ["نبتعد عنه ونتركه", "نفعل ونكرره دائماً", "نحب ونشجع عليه"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما ضد كلمة (جديد) في عبارة (عام دراسي جديد)؟",
+                        options: ["قديم", "جميل", "واسع"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: نوع اللام في كلمة (المُعَلِّم) هي:",
+                        options: ["لام قمرية", "لام شمسية", "ليست لام تعريف"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "القواعد النحوية: كلمة (أحمد) في جملة (قال أحمد) تدل على:",
+                        options: ["اسم علم مذكر", "فعل ماضٍ", "حرف جر"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الجمع والمفرد: ما جمع كلمة (تلميذ)؟",
+                        options: ["تلاميذ", "معلمون", "مدارس"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "الرياض والملك الشجاع",
+                color: "from-amber-400 to-orange-500",
+                icon: "🏰",
+                excerpt: "زارت نورة مع أسرتها مدينة الرياض، وقالت الأم: سأحدثكم عن موحد مملكتنا وبطل الرياض الملك عبد العزيز آل سعود الذي استردها ووحد البلاد تحت راية التوحيد. سُميت الرياض بهذا الاسم لأنها كانت رياضاً خضراء كثيرة البساتين.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: لماذا سُميت الرياض بهذا الاسم تاريخياً؟",
+                        options: ["لأنها كانت رياضاً خضراء كثيرة البساتين والحدائق", "لأنها تحيط بها البحار من كل جانب", "لأنها أصغر مدينة في العالم"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والمعاني: ما معنى كلمة (القاحلة) في عبارة (وسط الصحراء القاحلة)؟",
+                        options: ["التي لا نبات فيها ولا ماء", "المليئة بالحدائق والغابات", "الكثيرة الأشجار والأنهار"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "فهم المقروء والمعالم: الجبل الذي حط الملك عبد العزيز رحاله فيه ليلة استرداد الرياض هو:",
+                        options: ["جبل أبي غارب (حديقة المناخ)", "جبل أحد", "جبل طويق"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: ما المعلم التاريخي الشهير الذي استرده الملك عبد العزيز في الرياض؟",
+                        options: ["حصن المصمك", "قصر شبرا", "نافورة الملك فهد"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الأسماء الموصولة والإشارة: كلمة (الذي) في (الملك عبد العزيز الذي استردها) تُعتبر:",
+                        options: ["اسم موصول", "اسم إشارة", "حرف عطف"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الوطنيات: ماذا نطلق على لقب الملك عبد العزيز في قصة استرداد الرياض؟",
+                        options: ["موحد المملكة وبطل الرياض", "مؤسس الصحافة", "قائد الرحلات البحرية"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "مصاييفنا",
+                color: "from-purple-400 to-indigo-500",
+                icon: "🌲",
+                excerpt: "طلب المعلم التحدث عن المصاييف الجبلية. تحدث مهند عن الطائف عروس المصاييف ومنتزهاتها الشفا والهدا، وعن الباحة وغابة رغدان، وعن عسير وأبها عروس الجبل ومنتزه السودة المميز بخضرته الكثيفة.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: أي مدينة تُلقب بـ (عروس المصاييف) في المملكة؟",
+                        options: ["مدينة الطائف", "مدينة الدمام", "مدينة جدة"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والمعاني: ما معنى كلمة (العَلِيل) في قولنا (بالنسيم العليل)؟",
+                        options: ["اللطيف المنعش", "الحار الشديد", "الضعيف المريض"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما ضد كلمة (الكثيفة) في عبارة (الخضرة الكثيفة)؟",
+                        options: ["القليلة / الخفيفة", "الزائدة", "الطويلة"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: نوع اللام في كلمة (الـشَّفَا) هي:",
+                        options: ["لام شمسية", "لام قمرية", "أصلية من الكلمة"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الجمع والمفرد: ما مفرد كلمة (منتزهات)؟",
+                        options: ["منتزه", "تنزيه", "نزهة"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الجغرافيا الوطنية: من مناطق المصاييف البارزة في عسير والمميزة بخضرتها الكثيفة:",
+                        options: ["منتزه السودة", "حي الروابي", "منطقة الربع الخالي"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "التعاون",
+                color: "from-lime-400 to-green-500",
+                icon: "🌱",
+                excerpt: "في يوم البيئة العالمي اقترح فواز زراعة ساحة المدرسة الواسعة لتصبح حديقة خضراء. قسم المعلم التلاميذ إلى مجموعات للتعاون، وبفضل التعاون نجتاز الصعوبات ونحقق الغايات بنجاح.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: كيف استغل التلاميذ ساحة المدرسة الواسعة؟",
+                        options: ["حولوها لحديثة خضراء بالتعاون وغرس الشتلات", "بنا فيها متجراً كبيراً للالعاب", "تركوها مهملة دون تنظيف"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والمعاني: ما معنى كلمة (نَجْتَاز) في قولهم (نجتاز الصعوبات)؟",
+                        options: ["نتعالى ونعبر ونتغلب عليها", "نهرب ونبتعد عنها", "نسقط ونستسلم لها"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما ضد كلمة (التعاون)؟",
+                        options: ["التخاذل والتنافر", "المحبة والتآخي", "العمل الشاق"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب والشواهد: الآية الكريمة التي تحثنا على التعاون هي:",
+                        options: ["(وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى)", "(وَقُل رَّبِّ زِدْنِي عِلْمًا)", "(إِنَّ مَعَ الْعُسْرِ يُسْرًا)"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الأساليب اللغوية: جملة (ما أحسن التعاون!) تُعتبر أسلوب:",
+                        options: ["تعجب", "نهي", "استفهام"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الظواهر الإملائية: كلمة (الْبِئَة / البيئة) تُكتب بهمزة متوسطة على:",
+                        options: ["النبرة (ياء)", "السطر منفردة", "الألف"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "الإيثار",
+                excerpt: "قرر فواز شراء كتاب مفيد عن الإيثار. وفي القصة قرأت كيف آثرت أم المؤمنين عائشة رضي الله عنها المرأة الفقيرة وابنتيها بثلاث تمرات فقط، وبقيت هي تؤثر غيرها حتى أثنى الله ورسوله عليها.",
+                color: "from-rose-400 to-pink-500",
+                icon: "🤲",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: كم تمرة وجدت أم المؤمنين عائشة رضي الله عنها في بيتها وأعطتها للمسكينة؟",
+                        options: ["ثلاث تمرات", "عشر تمرات", "تمرة واحدة فقط"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والمعاني: ما مفهوم خُلُق (الإيثَار)؟",
+                        options: ["تفضيل غيرك على نفسك وحب الخير له", "حب النفس وحب الأنانية", "بخل الإنسان بماله وطعامه"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما ضد كلمة (جَائِع)؟",
+                        options: ["شَبْعَان", "عَطْشَان", "تَعْبَان"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: كلمة (الْمَرْأَة) نوع الـ التعريف فيها هي:",
+                        options: ["لام قمرية", "لام شمسية", "تنوين ضم"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "السيرة النبوية: من هي الشخصية العظيمة المضروبة مثلاً في قصة الإيثار؟",
+                        options: ["عائشة بنت أبو بكر الصديق رضي الله عنهما", "خديجة بنت خويلد", "فاطمة الزهراء"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "نوع الكلمة: كلمة (اشترى) في جملة (اشترى فواز كتاباً) تعتبر:",
+                        options: ["فعل ماضٍ", "اسم علم", "حرف جر"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            },
+            {
+                title: "الأقمار الصناعية",
+                color: "from-cyan-400 to-blue-600",
+                icon: "🛰️",
+                excerpt: "اجتمعت الأسرة لتشاهد بثاً مباشراً ليوم عرفة. سألت دانية والدها كيف تُنقل صور التلفاز؟ فقال: عن طريق الأقمار الصناعية، وهي أجسام تدور في الفضاء الخارجي حول الأرض صنعها الإنسان لأداء مهمات كالاتصالات والبث.",
+                questions: [
+                    {
+                        question: "سؤال فهم المقروء: ما هي الأقمار الصناعية وكيف تعمل؟",
+                        options: ["أجسام صنعها الإنسان تدور في الفضاء حول الأرض", "نجوم حقيقية تضيء في الليل بالسماء", "طائرات ورقية تطير في السحاب"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "المفردات والمعاني: ما معنى كلمة (الفَضَاء) في عبارة (في الفضاء الخارجي)؟",
+                        options: ["الكون الواسع خارج الغلاف الجوي", "البيت الواسع الكبير", "حديقة المدرسة"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الضد والمقابل: ما مضاد كلمة (الخَارِجِي)؟",
+                        options: ["الدَّاخِلِي", "الْبَعِيد", "الْعَالِي"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "معلومات وطنية وتراكيب: الجهة السعودية المترئسة لعلوم الفضاء والأقمار الصناعية هي:",
+                        options: ["وكالة الفضاء السعودية / مدينة الملك عبد العزيز", "وزارة الصحة", "إدارة المرور"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "الجمع والمفرد: ما مفرد كلمة (الأقمار)؟",
+                        options: ["قمر", "مقيم", "قمري"],
+                        correctAnswerIndex: 0
+                    },
+                    {
+                        question: "التراكيب اللغوية: كلمة (مُبَاشِراً) في (بثاً مباشراً) منونة بـ:",
+                        options: ["تنوين الفتح", "تنوين الكسر", "تنوين الضم"],
+                        correctAnswerIndex: 0
+                    }
+                ]
+            }
+        ];
+
+        let studentName = "";
+        let studentClass = "";
+        let currentMissionIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let missionScores = [null, null, null, null, null, null, null];
+        
+        let currentShuffledOptions = [];
+
+        function renderHub() {
+            const grid = document.getElementById('missions-grid');
+            grid.innerHTML = '';
+
+            missionsData.forEach((m, idx) => {
+                const isCompleted = missionScores[idx] !== null;
+                const maxQ = m.questions.length;
+                const scoreText = isCompleted ? `مكتمل (${missionScores[idx]}/${maxQ} ⭐)` : 'لم تبدأ بعد';
+                const statusClass = isCompleted ? 'bg-emerald-100 text-emerald-800 border-emerald-400' : 'bg-amber-100 text-amber-900 border-amber-300';
+
+                const card = document.createElement('div');
+                card.onclick = () => selectMission(idx);
+                card.className = `cartoon-btn bg-white p-5 rounded-3xl border-4 border-slate-900 hover:scale-[1.02] cursor-pointer relative overflow-hidden flex flex-col justify-between`;
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-4xl">${m.icon}</span>
+                            <span class="bg-indigo-900 text-amber-300 text-xs font-black px-3 py-1 rounded-full border border-slate-900">
+                                المهمة ${idx + 1} (${maxQ} أسئلة)
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900 mb-1">${m.title}</h4>
+                        <p class="text-gray-600 text-xs font-bold line-clamp-2 mb-3">${m.excerpt}</p>
+                    </div>
+                    <div class="flex justify-between items-center text-xs font-black pt-2 border-t-2 border-gray-100">
+                        <span class="${statusClass} px-3 py-1 rounded-xl border">${scoreText}</span>
+                        <span class="text-indigo-600 flex items-center gap-1">ابدئي التحقيق 🔍➔</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            const totalStars = missionScores.reduce((acc, curr) => acc + (curr || 0), 0);
+            document.getElementById('total-stars').innerText = totalStars;
+        }
+
+        function startMissions() {
+            const nameInput = document.getElementById('student-name');
+            const classInput = document.getElementById('student-class');
+            
+            studentName = nameInput.value.trim();
+            studentClass = classInput.value.trim();
+            
+            if (!studentName || !studentClass) {
+                alertCustom("الرجاء إدخال اسمكِ الثلاثي وصفكِ لتبدئي المغامرة!");
+                return;
+            }
+
+            playSound('success');
+            document.getElementById('display-name').innerText = studentName;
+            document.getElementById('display-class').innerText = studentClass;
+            
+            document.getElementById('screen-register').classList.add('hidden');
+            document.getElementById('screen-hub').classList.remove('hidden');
+            renderHub();
+        }
+
+        function selectMission(index) {
+            currentMissionIndex = index;
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            playSound('success');
+            document.getElementById('screen-hub').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+            
+            const m = missionsData[currentMissionIndex];
+            document.getElementById('mission-title-badge').innerText = `المهمة: ${m.title}`;
+            document.getElementById('total-q-num').innerText = m.questions.length;
+            document.getElementById('excerpt-text').innerText = m.excerpt;
+            
+            loadQuestion();
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuestion() {
+            const m = missionsData[currentMissionIndex];
+            const q = m.questions[currentQuestionIndex];
+            
+            document.getElementById('current-q-num').innerText = currentQuestionIndex + 1;
+            document.getElementById('question-text').innerText = q.question;
+            
+            const rawOptions = q.options.map((opt, originalIndex) => ({
+                text: opt,
+                isCorrect: originalIndex === q.correctAnswerIndex
+            }));
+
+            currentShuffledOptions = shuffleArray(rawOptions);
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            currentShuffledOptions.forEach((optObj, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "opt-btn w-full text-right p-4 rounded-2xl bg-white font-black text-slate-800 text-base md:text-lg flex items-center gap-3 cursor-pointer";
+                
+                const letterBadge = idx === 0 ? 'أ' : idx === 1 ? 'ب' : 'ج';
+                btn.innerHTML = `
+                    <span class="bg-indigo-100 text-indigo-800 text-sm font-black px-3 py-1 rounded-xl border border-indigo-300">${letterBadge}</span>
+                    <span>${optObj.text}</span>
+                `;
+                btn.onclick = () => selectAnswer(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('feedback-area').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectAnswer(selectedIndex, selectedBtn) {
+            const optionsContainer = document.getElementById('options-container');
+            const buttons = optionsContainer.getElementsByTagName('button');
+            
+            for (let btn of buttons) {
+                btn.disabled = true;
+                btn.classList.add('cursor-not-allowed', 'opacity-80');
+            }
+
+            const feedbackArea = document.getElementById('feedback-area');
+            feedbackArea.classList.remove('hidden');
+
+            const chosen = currentShuffledOptions[selectedIndex];
+
+            if (chosen.isCorrect) {
+                playSound('success');
+                selectedBtn.classList.remove('bg-white', 'opacity-80');
+                selectedBtn.classList.add('bg-emerald-400', 'text-slate-900', 'border-emerald-600', 'shadow-md');
+                feedbackArea.className = "p-4 rounded-2xl text-center font-black text-lg bg-emerald-200 text-emerald-950 border-4 border-emerald-400 shadow";
+                feedbackArea.innerText = "🌟 إجابة ممتازة وصحيحة يا بطلة التحقيق!";
+                score++;
+            } else {
+                playSound('error');
+                selectedBtn.classList.remove('bg-white', 'opacity-80');
+                selectedBtn.classList.add('bg-rose-400', 'text-slate-900', 'border-rose-600');
+                
+                currentShuffledOptions.forEach((opt, idx) => {
+                    if (opt.isCorrect) {
+                        buttons[idx].classList.remove('bg-white', 'opacity-80');
+                        buttons[idx].classList.add('bg-emerald-400', 'text-slate-900', 'border-emerald-600');
+                    }
+                });
+                
+                feedbackArea.className = "p-4 rounded-2xl text-center font-black text-lg bg-rose-200 text-rose-950 border-4 border-rose-400 shadow";
+                feedbackArea.innerText = "محاولة طيبة! الإجابة الصحيحة محددة باللون الأخضر 💚";
+            }
+
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            const m = missionsData[currentMissionIndex];
+            currentQuestionIndex++;
+            if (currentQuestionIndex < m.questions.length) {
+                loadQuestion();
+            } else {
+                showCertificate();
+            }
+        }
+
+        function showCertificate() {
+            playSound('complete');
+            missionScores[currentMissionIndex] = score;
+
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-certificate').classList.remove('hidden');
+            
+            const m = missionsData[currentMissionIndex];
+            document.getElementById('cert-student-name').innerText = studentName;
+            document.getElementById('cert-student-class').innerText = studentClass;
+            document.getElementById('cert-mission-title').innerText = m.title;
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('max-score').innerText = m.questions.length;
+        }
+
+        function returnToHub() {
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-certificate').classList.add('hidden');
+            document.getElementById('screen-hub').classList.remove('hidden');
+            renderHub();
+        }
+
+        function alertCustom(msg) {
+            let existingModal = document.getElementById('custom-modal');
+            if (existingModal) existingModal.remove();
+
+            const modal = document.createElement('div');
+            modal.id = 'custom-modal';
+            modal.className = 'fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 z-50';
+            modal.innerHTML = `
+                <div class="cartoon-card bg-white p-6 max-w-sm w-full text-center space-y-4">
+                    <div class="text-4xl animate-bounce">📢</div>
+                    <h3 class="text-xl font-black text-indigo-950">تنبيه للمحققة</h3>
+                    <p class="text-gray-700 font-bold text-sm">${msg}</p>
+                    <button onclick="document.getElementById('custom-modal').remove()" class="cartoon-btn w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-black py-3 rounded-2xl transition">
+                        حسناً يا بطلة 🔍
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>
