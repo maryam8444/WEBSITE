@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تَحَدِّي المُلَاحِظِ الصَّغِيرِ - المَدْرَسَةُ 185 الاِبْتِدَائِيَّةُ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- html2canvas for Image Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #fffdfa;
+            min-height: 100vh;
+        }
+        
+        .vibrant-banner {
+            background: linear-gradient(135deg, #fef9c3 0%, #ffedd5 35%, #fbcfe8 100%);
+            box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.2);
+        }
+
+        .badge-capsule {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 2px solid #fde68a;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border: 2px solid #fef3c7;
+        }
+
+        .detective-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .detective-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(251, 191, 36, 0.25);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.03); }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            header, footer, nav, button, .no-print {
+                display: none !important;
+            }
+            #certificate-screen {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: 8px double #d97706 !important;
+                box-shadow: none !important;
+                background: #fff !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <header class="p-3 md:p-6">
+        <div class="max-w-6xl mx-auto vibrant-banner rounded-3xl p-6 md:p-8 text-center relative overflow-hidden text-slate-900 border-4 border-amber-200">
+            <!-- Decorative Elements -->
+            <div class="absolute -top-4 -left-4 text-7xl opacity-20 transform -rotate-12 select-none">🔍</div>
+            <div class="absolute -bottom-4 -right-4 text-8xl opacity-20 transform rotate-12 select-none">🎨</div>
+            <div class="absolute top-4 right-12 text-5xl opacity-30 select-none">⭐</div>
+
+            <!-- Header Initiative Badge -->
+            <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-950 px-6 py-1.5 rounded-full text-xs font-black shadow-sm mb-2 tracking-wide border border-amber-300">
+                <i class="fa-solid fa-certificate text-amber-600"></i>
+                <span>مُبَادَرَةُ المَحَقِّقِ الصَّغِيرِ (المَسَارُ المُتَسَلْسِلُ)</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight drop-shadow-sm flex items-center justify-center gap-4">
+                <span class="text-5xl md:text-6xl animate-bounce">🕵️‍♀️</span>
+                <span class="text-amber-950">تَحَدِّي المَحَقِّقِ الصَّغِيرِ</span>
+                <span class="text-5xl md:text-6xl animate-bounce">🔍</span>
+            </h1>
+
+            <!-- Subtitle Capsule -->
+            <div class="inline-block bg-white/90 text-indigo-950 font-extrabold px-6 py-2 rounded-full text-sm md:text-base shadow-sm border-2 border-amber-300 mb-6">
+                📚 الفَهْمُ القُرَائِيُّ وَالتَّرَاكِيبُ اللُّغَوِيَّةُ - لِلصَّفِّ الثَّالِثِ الاِبْتِدَائِيِّ 📚
+            </div>
+
+            <!-- Auto-save notification pill -->
+            <div class="mb-4 text-xs font-bold text-amber-900 bg-amber-100/80 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-300">
+                <i class="fa-solid fa-floppy-disk text-emerald-600"></i>
+                <span>يَتِمُّ حِفْظُ تَقَدُّمِ الطَّالِبَةِ وَالدُّرُوسِ المَكْتَمِلَةِ تِلْقَائِيًّا عَلَى الجِهَازِ 💾</span>
+            </div>
+
+            <!-- Credits Pills Row -->
+            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-xs md:text-sm font-black text-slate-800">
+                <div class="badge-capsule px-5 py-2.5 rounded-full flex items-center gap-2 shadow-sm">
+                    <span class="text-lg">🏫</span>
+                    <span>المَدْرَسَةُ 185 الاِبْتِدَائِيَّةُ</span>
+                </div>
+                <div class="badge-capsule px-5 py-2.5 rounded-full flex items-center gap-2 shadow-sm">
+                    <span class="text-lg">👑</span>
+                    <span>مُدِيرَةُ المَدْرَسَةِ: مُنَى الزَّبْن</span>
+                </div>
+                <div class="badge-capsule px-5 py-2.5 rounded-full flex items-center gap-2 shadow-sm">
+                    <span class="text-lg">⭐</span>
+                    <span>مُنَسِّقَةُ المُبَادَرَةِ: مَرْيَم الذَّبْيَانِي</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-4 md:py-6 flex flex-col justify-center">
+
+        <!-- STEP 1: STUDENT REGISTRATION SCREEN -->
+        <section id="registration-screen" class="glass-panel rounded-3xl shadow-2xl p-6 md:p-10 max-w-xl mx-auto w-full text-center border-4 border-amber-300">
+            <div class="relative w-36 h-36 mx-auto mb-6">
+                <div class="absolute inset-0 bg-gradient-to-tr from-amber-400 via-rose-300 to-indigo-400 rounded-full blur-lg opacity-70 animate-pulse"></div>
+                <div class="relative w-full h-full bg-gradient-to-tr from-amber-200 via-amber-100 to-rose-100 text-indigo-950 rounded-full flex items-center justify-center text-6xl shadow-2xl border-4 border-white">
+                    <i class="fa-solid fa-user-ninja text-amber-900 drop-shadow-md"></i>
+                    <span class="absolute -bottom-1 -right-1 bg-amber-400 border-2 border-white rounded-full p-2 text-xl shadow-md">🔍</span>
+                </div>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">أَهْلًا بِكِ أَيَّتُهَا المَحَقِّقَةُ الذَّكِيَّةُ! ✨</h2>
+            <p class="text-slate-600 text-sm md:text-base mb-6 font-semibold">سَجِّلِي اسْمَكِ الجَمِيلَ وَفَصْلَكِ لِلْبَدْءِ فِي مَسَارِ التَّحَدِّيَاتِ المُتَسَلْسِلِ:</p>
+            
+            <form id="reg-form" class="space-y-4 text-right" onsubmit="handleRegistration(event)">
+                <div>
+                    <label class="block text-sm font-black text-slate-700 mb-1.5"><i class="fa-solid fa-signature text-amber-600 ml-1"></i> اسْمُ الطَّالِبَةِ الثُّلاَثِيُّ:</label>
+                    <input type="text" id="student-name" required placeholder="اكْتُبِي اسْمَكِ هُنَا..." 
+                        class="w-full px-4 py-3.5 rounded-2xl border-2 border-amber-200 focus:border-amber-500 focus:ring-4 focus:ring-amber-100 focus:outline-none text-base font-bold text-slate-800 shadow-inner bg-white">
+                </div>
+                <div>
+                    <label class="block text-sm font-black text-slate-700 mb-1.5"><i class="fa-solid fa-chalkboard-user text-rose-500 ml-1"></i> الصَّفُّ وَالفَصْلُ:</label>
+                    <input type="text" id="student-class" required placeholder="مِثْلَ: الثَّالِثُ (1)" 
+                        class="w-full px-4 py-3.5 rounded-2xl border-2 border-amber-200 focus:border-amber-500 focus:ring-4 focus:ring-amber-100 focus:outline-none text-base font-bold text-slate-800 shadow-inner bg-white">
+                </div>
+                <button type="submit" 
+                    class="w-full mt-4 bg-gradient-to-r from-amber-500 via-amber-600 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-black py-4 rounded-2xl shadow-xl transition transform active:scale-95 text-lg flex items-center justify-center gap-3 border-2 border-amber-300">
+                    <span>دُخُولٌ إِلَى خَرِيطَةِ المَهَامِّ</span>
+                    <i class="fa-solid fa-arrow-left-long text-xl"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- STEP 2: MISSIONS MAP / GRID SCREEN -->
+        <section id="missions-screen" class="hidden space-y-6">
+            <div class="glass-panel p-6 rounded-3xl border-2 border-amber-300 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-amber-400 text-indigo-950 rounded-2xl flex items-center justify-center text-3xl shadow-md border-2 border-amber-200">
+                        🕵️‍♀️
+                    </div>
+                    <div>
+                        <span class="text-xs font-black text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">مَلَفُّ المَحَقِّقَةِ</span>
+                        <h3 id="display-student-name" class="text-xl font-black text-slate-900 mt-0.5">---</h3>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="startStealthBriefingModal()" class="bg-indigo-900 hover:bg-indigo-950 text-white font-black px-5 py-2.5 rounded-2xl shadow transition text-xs md:text-sm flex items-center gap-2 border-2 border-indigo-700">
+                        <i class="fa-solid fa-mask text-amber-400 text-base"></i>
+                        <span>دَلِيلُ التَّعْلِيمَاتِ السِّرِّيَّةِ</span>
+                    </button>
+                    <div class="bg-gradient-to-r from-amber-100 to-amber-200 border-2 border-amber-400 rounded-2xl px-5 py-2 text-center shadow-sm">
+                        <span class="text-xs text-amber-900 font-bold block">الأَوْسِمَةُ المَكْتَسَبَةُ</span>
+                        <span id="total-score" class="text-2xl font-black text-amber-950">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Path Mission Cards Grid -->
+            <div id="missions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- STEP 3: QUIZ & ENRICHMENT STEP-BY-STEP SCREEN -->
+        <section id="quiz-screen" class="hidden space-y-6">
+            <!-- Header bar for mission -->
+            <div class="glass-panel p-4 md:p-5 rounded-3xl border-2 border-amber-300 shadow-md flex items-center justify-between">
+                <button onclick="backToMissions()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs md:text-sm font-black px-4 py-2.5 rounded-2xl transition border border-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right"></i> العَوْدَةُ لِلْخَرِيطَةِ
+                </button>
+                <div id="mission-title-badge" class="bg-amber-100 text-amber-950 px-4 py-2 rounded-2xl font-black text-xs md:text-sm border border-amber-300 shadow-sm">
+                    مَهَمَّةُ: ---
+                </div>
+                <div class="text-xs font-black text-amber-900 bg-amber-50 px-3 py-2 rounded-2xl border border-amber-200">
+                    <span id="step-indicator-text">المَرْحَلَةُ 1 مِنْ 11</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 h-3.5 rounded-full overflow-hidden shadow-inner p-0.5 border border-slate-300">
+                <div id="step-progress-bar" class="bg-gradient-to-r from-amber-400 to-rose-500 h-full rounded-full transition-all duration-500" style="width: 9%;"></div>
+            </div>
+
+            <!-- Text Excerpt Display Box -->
+            <div id="excerpt-box-wrapper" class="bg-amber-50/90 border-r-8 border-amber-400 p-5 rounded-2xl shadow-inner border border-amber-200">
+                <div id="excerpt-box-title" class="text-xs font-black text-amber-900 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-amber-600"></i>
+                    <span>اقْرَئِي النَّصَّ بِدِقَّةٍ وَاسْتَخْرِجِي الدَّلِيلَ:</span>
+                </div>
+                <p id="mission-excerpt" class="text-slate-800 text-sm md:text-base leading-loose font-bold">
+                    ---
+                </p>
+            </div>
+
+            <!-- Question Display Box -->
+            <div id="single-question-container">
+                <!-- Dynamically injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- STEP 4: PER-MISSION CERTIFICATE SCREEN -->
+        <section id="certificate-screen" class="hidden glass-panel rounded-3xl p-6 md:p-10 text-center border-8 border-amber-400 shadow-2xl relative overflow-hidden bg-white max-w-3xl mx-auto">
+            <!-- Decorative Certificate Frame Icons -->
+            <div class="absolute top-3 left-3 text-4xl text-amber-300 opacity-50">🏆</div>
+            <div class="absolute top-3 right-3 text-4xl text-amber-300 opacity-50">⭐</div>
+            <div class="absolute bottom-3 left-3 text-4xl text-amber-300 opacity-50">✨</div>
+            <div class="absolute bottom-3 right-3 text-4xl text-amber-300 opacity-50">🏅</div>
+
+            <div class="border-4 border-dashed border-amber-300 p-6 rounded-2xl bg-gradient-to-b from-amber-50/40 via-white to-amber-50/30">
+                <div class="w-24 h-24 bg-amber-400 text-amber-950 rounded-full flex items-center justify-center text-5xl mx-auto mb-4 border-4 border-white shadow-xl animate-bounce">
+                    🎖️
+                </div>
+
+                <div class="inline-block bg-amber-100 text-amber-950 px-6 py-1.5 rounded-full text-xs font-black border border-amber-300 mb-2">
+                    المَدْرَسَةُ 185 الاِبْتِدَائِيَّةُ - مُبَادَرَةُ المَحَقِّقِ الصَّغِيرِ
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-1">شَهَادَةُ إِتْقَانٍ وَتَفَوُّقٍ</h2>
+                <p class="text-amber-800 text-sm font-bold mb-6">تَسْتَحِقُّهَا المَحَقِّقَةُ البَارِعَةُ عَنْ جَدَارَةٍ وَاسْتِحْقَاقٍ</p>
+
+                <div class="my-6">
+                    <p class="text-slate-600 text-sm font-extrabold mb-1">تَشْهَدُ إِدَارَةُ المَبَادَرَةِ بِأَنَّ الطَّالِبَةَ المُمَيَّزَةَ:</p>
+                    <h3 id="cert-student-name" class="text-2xl md:text-3xl font-black text-indigo-950 my-2 underline decoration-amber-400 decoration-wavy">---</h3>
+                    <p class="text-slate-700 font-bold text-sm">مِنْ الصَّفِّ / الفَصْلِ: <span id="cert-student-class" class="text-amber-900 font-black">---</span></p>
+                </div>
+
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-bold mb-8">
+                    قَدْ أَتَمَّتْ بِنَجَاحٍ وَإِتْقَانٍ مَهَمَّةَ دَرْسِ «<span id="cert-lesson-title" class="text-rose-600 font-black">---</span>» فِي مَادَّةِ لُغَتِي (الفَهْمُ القُرَائِيُّ وَالتَّرَاكِيبُ اللُّغَوِيَّةُ)، وَحَلَّتْ جَمِيعَ أَلْغَازِ المَهَمَّةِ بِنَجَاحٍ.
+                </p>
+
+                <!-- Signatures Row -->
+                <div class="grid grid-cols-2 gap-4 border-t-2 border-amber-200 pt-6 text-xs font-black text-slate-800 max-w-lg mx-auto">
+                    <div>
+                        <p class="text-amber-900 mb-1">مُنَسِّقَةُ المَبَادَرَةِ:</p>
+                        <p class="text-indigo-950 font-black text-sm">مَرْيَم الذَّبْيَانِي ⭐</p>
+                    </div>
+                    <div>
+                        <p class="text-amber-900 mb-1">مُدِيرَةُ المَدْرَسَةِ:</p>
+                        <p class="text-indigo-950 font-black text-sm">مُنَى الزَّبْن 👑</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate Actions -->
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mt-8 no-print">
+                <button onclick="shareOnWhatsApp()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-8 py-3.5 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-base border-2 border-white cursor-pointer">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> مُشَارَكَةُ الإِنْجَازِ عَبْرَ واتْسَاب
+                </button>
+                <button onclick="downloadCertificate()" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black px-8 py-3.5 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-base border-2 border-white cursor-pointer">
+                    <i class="fa-solid fa-download text-xl"></i> تَحْمِيلُ الشَّهَادَةِ (صُورَة)
+                </button>
+                <button onclick="window.print()" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-indigo-950 font-black px-8 py-3.5 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-base border-2 border-white cursor-pointer">
+                    <i class="fa-solid fa-print text-xl"></i> طِبَاعَةُ الشَّهَادَةِ
+                </button>
+                <button onclick="backToMissions()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-black px-6 py-3.5 rounded-2xl shadow transition flex items-center justify-center gap-2 text-base border border-slate-200 cursor-pointer">
+                    <i class="fa-solid fa-arrow-rotate-right"></i> العَوْدَةُ لِخَرِيطَةِ المَسَارِ
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: ERROR / RESET STEP -->
+    <div id="error-reset-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border-4 border-rose-400 space-y-4">
+            <div class="w-20 h-20 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                🔍
+            </div>
+            <h3 class="text-2xl font-black text-rose-600">عَفْوًا أَيَّتُهَا المَحَقِّقَةُ!</h3>
+            <p class="text-slate-700 text-sm md:text-base font-bold leading-relaxed">
+                الإِجَابَةُ غَيْرُ صَحِيحَةٍ. المَحَقِّقَةُ الذَّكِيَّةُ تُعِيدُ الفَحْصَ مِنْ البِدَايَةِ لِتَتَأَكَّدَ مِنْ جَمِيعِ الأَدِلَّةِ بِنَجَاحٍ!
+            </p>
+            <button onclick="closeErrorModal()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-black py-3.5 rounded-2xl shadow-lg transition text-base border-2 border-white">
+                إِعَادَةُ حَلِّ المَهَمَّةِ مِنْ المَرْحَلَةِ (1) 🔄
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 2: PROGRESS / SUCCESS MODAL -->
+    <div id="progress-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border-4 border-emerald-400 space-y-4">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner animate-bounce">
+                ✨
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black text-emerald-600">إِجَابَةٌ صَحِيحَةٌ!</h3>
+            <p id="modal-message" class="text-slate-700 text-sm md:text-base font-bold leading-relaxed">
+                تَمَّ اسْتِخْرَاجُ الدَّلِيلِ بِنَجَاحٍ!
+            </p>
+            <button onclick="closeProgressModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-3.5 rounded-2xl shadow-lg transition text-base border-2 border-white">
+                الاِنْتِقَالُ لِلْمَرْحَلَةِ التَّالِيَةِ 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 3: STEALTH BRIEFING / INSTRUCTIONS -->
+    <div id="stealth-briefing-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 text-white rounded-3xl max-w-lg w-full p-6 md:p-8 text-right shadow-2xl border-4 border-amber-400 space-y-4 relative">
+            <button onclick="closeStealthBriefingModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-2xl font-black">✕</button>
+            
+            <div class="flex items-center gap-3 text-amber-400 border-b border-slate-700 pb-3">
+                <i class="fa-solid fa-mask text-3xl"></i>
+                <div>
+                    <h3 class="text-xl font-black">دَلِيلُ التَّعْلِيمَاتِ السِّرِّيَّةِ لِلْمَحَقِّقَةِ</h3>
+                    <p class="text-xs text-slate-400">قَوَاعِدُ التَّحَدِّي المُتَسَلْسِلِ</p>
+                </div>
+            </div>
+
+            <ul class="space-y-3 text-xs md:text-sm font-semibold text-slate-200 leading-relaxed">
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">1.</span>
+                    <span>كُلُّ دَرْسٍ يَتَكَوَّنُ مِنْ 10 أَسْئِلَةِ فَهْمٍ وَتَرَاكِيبَ لُغَوِيَّةٍ + مَهَمَّةِ خِتَامٍ إِثْرَائِيَّةٍ (11 مَرْحَلَةً).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">2.</span>
+                    <span>تَحْتَاجِينَ لإِجَابَةِ جَمِيعِ الأَسْئِلَةِ بِشَكْلٍ صَحِيحٍ لِتَجْتَازِي المَهَمَّةَ.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">3.</span>
+                    <span>فِي حَالِ الإِجَابَةِ الخَاطِئَةِ، تَقُومُ المَحَقِّقَةُ بِإِعَادَةِ المَهَمَّةِ مِنْ المَرْحَلَةِ (1) لِلتَّأَكُّدِ مِنْ الدِّقَّةِ.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">4.</span>
+                    <span>عِنْدَ إِكْمَالِ كُلِّ دَرْسٍ، تُحَصِّلِينَ عَلَى شَهَادَةِ إِتْقَانٍ لِلدَّرْسِ، وَتُفْتَحُ المَهَمَّةُ التَّالِيَةُ.</span>
+                </li>
+            </ul>
+
+            <button onclick="closeStealthBriefingModal()" class="w-full mt-4 bg-amber-500 hover:bg-amber-600 text-indigo-950 font-black py-3 rounded-2xl shadow transition text-sm">
+                فَهِمْتُ التَّعْلِيمَاتِ.. ابْدَأِي المَهَمَّةَ 🕵️‍♀️
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-300 py-4 text-center text-xs mt-auto border-t border-slate-800 font-bold no-print">
+        <p>مُبَادَرَةُ المَحَقِّقِ الصَّغِيرِ © المَدْرَسَةُ 185 الاِبْتِدَائِيَّةُ | إِشْرَافُ: مُنَى الزَّبْن & مَرْيَم الذَّبْيَانِي</p>
+    </footer>
+
+    <script>
+        // Web Audio Synth Engine
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playSound(type) {
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.15);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(280, now);
+                    osc.frequency.exponentialRampToValueAtTime(150, now + 0.25);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(600, now);
+                    gain.gain.setValueAtTime(0.05, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'win') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.4);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                    osc.start(now);
+                    osc.stop(now + 0.5);
+                }
+            } catch (e) {
+                console.log("Audio play error:", e);
+            }
+        }
+
+        // Global State Variables
+        let studentName = "";
+        let studentClass = "";
+        let currentMissionId = null;
+        let currentQuestionIndex = 0;
+        let currentActiveQuestions = [];
+        let completedMissions = JSON.parse(localStorage.getItem('completed_missions_185') || '[]');
+
+        // Curriculum Database with Sequential Lesson Flow
+        const lessonsData = [
+            {
+                id: 1,
+                title: "عَادِلٌ فِي الطَّائِرَةِ",
+                unit: "الوِحْدَةُ الأُولَى: التَّعَامُلُ مَعَ الآخَرِينَ",
+                icon: "plane-departure",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: بَطَلَةُ الأَدَبِ وَالسَّفَرِ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: فِي السَّفَرِ يَتَعَلَّمُ الإِنْسَانُ احْتِرَامَ الأَنْظِمَةِ، وَيُحَافِظُ عَلَى نَظَافَةِ الطَّائِرَةِ وَالمَطَارِ، وَيُسَاعِدُ الآخَرِينَ بِابْتِسَامَةٍ جَمِيلَةٍ.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَا هُوَ التَّصَرُّفُ الجَمِيلُ الَّذِي يَجْعَلُكِ مُسَافِرَةً مِثَالِيَّةً؟",
+                    options: ["إِزْعَاجُ المُسَافِرِينَ", "الاِلْتِزَامُ بِالنِّظَامِ وَاحْتِرَامُ المَقَاعِدِ", "رَمْيُ النَّفَايَاتِ عَلَى الأَرْضِ", "الصُّرَاخُ وَالعَبَثُ"],
+                    answer: "الاِلْتِزَامُ بِالنِّظَامِ وَاحْتِرَامُ المَقَاعِدِ"
+                },
+                questions: [
+                    { 
+                        excerpt: "دَخَلَ الوَالِدُ حَامِلًا فِي يَدِهِ تَذَاكِرَ السَّفَرِ، فَاسْتَقْبَلَتْهُ الأُسْرَةُ بِفَرَحٍ، وَأَسْرَعَ الجَمِيعُ لِتَجْهِيزِ حَقَائِبِهِم الكَبِيرَةِ اسْتِعْدَادًا لِلرَّحْلَةِ إِلاَّ عَادِلًا، اكْتَفَى بِحَقِيبَةٍ يَدَوِيَّةٍ صَغِيرَةٍ...",
+                        question: "مَنْ هُوَ الشَّخْصُ الَّذِي اكْتَفَى بِحَقِيبَةٍ يَدَوِيَّةٍ صَغِيرَةٍ؟", 
+                        options: ["الوَالِدُ", "عَادِلٌ", "فَوَّازٌ", "الأُمُّ"], 
+                        answer: "عَادِلٌ" 
+                    },
+                    { 
+                        excerpt: "وَفِي المَطَارِ صَعِدَت الأُسْرَةُ إِلَى الطَّائِرَةِ بِهُدُوءٍ، وَجَلَسَ كُلُّ وَاحِدٍ فِي مَقْعَدِهِ المُخَصَّصِ، ثُمَّ اسْتَقَرَّ عَادِلٌ فِي مَقْعَدِهِ وَأَخَذَ يُطَالِعُ مَجَلَّةً لِلأَطْفَالِ...",
+                        question: "مُرَادِفُ كَلِمَةِ (اسْتَقَرَّ) فِي النَّصِّ هُوَ:", 
+                        options: ["تَحَرَّكَ", "جَلَسَ وَاطْمَأَنَّ", "سَافَرَ", "تَعِبَ"], 
+                        answer: "جَلَسَ وَاطْمَأَنَّ" 
+                    },
+                    { 
+                        excerpt: "وَأَسْرَعَ الجَمِيعُ لِتَجْهِيزِ حَقَائِبِهِم الكَبِيرَةِ اسْتِعْدَادًا لِلرَّحْلَةِ إِلاَّ عَادِلًا، اكْتَفَى بِحَقِيبَةٍ يَدَوِيَّةٍ صَغِيرَةٍ...",
+                        question: "مُضَادُّ كَلِمَةِ (الكَبِيرَةِ) فِي النَّصِّ هُوَ:", 
+                        options: ["الوَاسِعَةِ", "الصَّغِيرَةِ", "الجَمِيلَةِ", "البَعِيدَةِ"], 
+                        answer: "الصَّغِيرَةِ" 
+                    },
+                    { 
+                        excerpt: "دَخَلَ الوَالِدُ حَامِلًا فِي يَدِهِ تَذَاكِرَ السَّفَرِ...",
+                        question: "نَوْعُ التَّنْوِينِ فِي كَلِمَةِ (حَامِلًا) هُوَ:", 
+                        options: ["تَنْوِينُ ضَمٍّ", "تَنْوِينُ كَسْرٍ", "تَنْوِينُ فَتْحٍ", "لَيْسَ تَنْوِينًا"], 
+                        answer: "تَنْوِينُ فَتْحٍ" 
+                    },
+                    { 
+                        excerpt: "وَفِي المَطَارِ صَعِدَت الأُسْرَةُ إِلَى الطَّائِرَةِ بِهُدُوءٍ، وَجَلَسَ كُلُّ وَاحِدٍ فِي مَقْعَدِهِ...",
+                        question: "إِلَى أَيْنَ تَوَجَّهَت الأُسْرَةُ بَعْدَ تَجْهِيزِ الحَقَائِبِ؟", 
+                        options: ["إِلَى الحَدِيقَةِ", "إِلَى المَدْرَسَةِ", "إِلَى المَطَارِ", "إِلَى السُّوقِ"], 
+                        answer: "إِلَى المَطَارِ" 
+                    },
+                    { 
+                        excerpt: "دَخَلَ الوَالِدُ حَامِلًا فِي يَدِهِ تَذَاكِرَ السَّفَرِ...",
+                        question: "مُفْرَدُ كَلِمَةِ (تَذَاكِرَ) الوَارِدَةِ فِي النَّصِّ هُوَ:", 
+                        options: ["تَذْكِرَةٌ", "ذِكْرَى", "ذَاكِرٌ", "مُذَكِّرَةٌ"], 
+                        answer: "تَذْكِرَةٌ" 
+                    },
+                    { 
+                        excerpt: "وَأَسْرَعَ الجَمِيعُ لِتَجْهِيزِ حَقَائِبِهِم الكَبِيرَةِ...",
+                        question: "مُفْرَدُ كَلِمَةِ (حَقَائِبَ) فِي النَّصِّ هُوَ:", 
+                        options: ["حُقُوبٌ", "حَقِيبَةٌ", "حَقَايِبُ", "مَحَاقِبُ"], 
+                        answer: "حَقِيبَةٌ" 
+                    },
+                    { 
+                        excerpt: "صَعِدَت الأُسْرَةُ إِلَى الطَّائِرَةِ بِهُدُوءٍ...",
+                        question: "كَلِمَةُ (الطَّائِرَةُ) تَبْدَأُ بِـ:", 
+                        options: ["لاَمٍ قَمَرِيَّةٍ", "تَنْوِينٍ", "لاَمٍ شَمْسِيَّةٍ", "حَرْفِ جَرٍّ"], 
+                        answer: "لاَمٍ شَمْسِيَّةٍ" 
+                    },
+                    { 
+                        excerpt: "وَجَلَسَ كُلُّ وَاحِدٍ فِي مَقْعَدِهِ المُخَصَّصِ، ثُمَّ اسْتَقَرَّ عَادِلٌ فِي مَقْعَدِهِ.",
+                        question: "عَلاَمَةُ التَّرْقِيمِ المُنَاسِبَةُ فِي نِهَايَةِ الجُمْلَةِ التَّامَّةِ هِيَ:", 
+                        options: ["الفَاصِلَةُ (,)", "النُّقْطَةُ (.)", "عَلاَمَةُ الاِسْتِفْهَامِ (؟)", "التَّعَجُّبُ (!)"], 
+                        answer: "النُّقْطَةُ (.)" 
+                    },
+                    { 
+                        excerpt: "وَأَسْرَعَ الجَمِيعُ لِتَجْهِيزِ حَقَائِبِهِم الكَبِيرَةِ اسْتِعْدَادًا لِلرَّحْلَةِ إِلاَّ عَادِلًا، اكْتَفَى بِحَقِيبَةٍ يَدَوِيَّةٍ صَغِيرَةٍ...",
+                        question: "مَا الصِّفَةُ الَّتِي تَمَيَّزَ بِهَا عَادِلٌ فِي اخْتِيَارِ حَقِيبَتِهِ؟", 
+                        options: ["التَّسَرُّعُ", "الإِهْمَالُ", "التَّنْظِيمُ وَالاِعْتِدَالُ", "البُكَاءُ"], 
+                        answer: "التَّنْظِيمُ وَالاِعْتِدَالُ" 
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "عَامٌ دِرَاسِيٌّ جَدِيدٌ",
+                unit: "الوِحْدَةُ الأُولَى: التَّعَامُلُ مَعَ الآخَرِينَ",
+                icon: "school",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: بَطَلَةُ العِلْمِ وَالأَخْلاَقِ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: العِلْمُ نُورٌ يُضِيءُ العُقُولَ، وَبِالاجْتِهَادِ وَحُسْنِ الأَخْلاَقِ نُحَقِّقُ أَحْلاَمَنَا وَنُسْعِدُ مُعَلِّمَاتِنَا وَوَالِدَيْنَا.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: كَيْفَ تُسْعِدِينَ وَالِدَيْكِ وَمُعَلِّمَتَكِ فِي المَدْرَسَةِ؟",
+                    options: ["بِالكَسَلِ وَتَرْكِ الوَاجِبَاتِ", "بِالاجْتِهَادِ وَالأَخْلاَقِ الحَسَنَةِ", "بِالتَّغَيُّبِ عَن الحِصَصِ", "بِالإِزْعَاجِ دَاخِلَ الفَصْلِ"],
+                    answer: "بِالاجْتِهَادِ وَالأَخْلاَقِ الحَسَنَةِ"
+                },
+                questions: [
+                    { 
+                        excerpt: "مَعَ بِدَايَةِ العَامِ الدِّرَاسِيِّ الجَدِيدِ، وَبَعْدَ أَنْ اكْتَمَلَ تَلاَمِيذُ الصَّفِّ الثَّالِثِ الاِبْتِدَائِيِّ فِي فَصْلِهِم...",
+                        question: "فِي أَيِّ صَفٍّ دِرَاسِيٍّ يَنْتَظِمُ التَّلاَمِيذُ فِي القِصَّةِ؟", 
+                        options: ["الصَّفِّ الأَوَّلِ", "الصَّفِّ الثَّالِثِ الاِبْتِدَائِيِّ", "الصَّفِّ الثَّانِي", "الصَّفِّ الرَّابِعِ"], 
+                        answer: "الصَّفِّ الثَّالِثِ الاِبْتِدَائِيِّ" 
+                    },
+                    { 
+                        excerpt: "قَالَ أَحْمَدُ: أَتَمَنَّى أَنْ أَكُونَ مِنَ المُتَفَوِّقِينَ فِي مَدْرَسَتِي، وَأَنْ أُسْعِدَ وَالِدَيَّ بِتَفَوُّقِي...",
+                        question: "مُرَادِفُ كَلِمَةِ (المُتَفَوِّقِينَ) فِي النَّصِّ هُوَ:", 
+                        options: ["المُتَأَخِّرِينَ", "النَّاجِحِينَ المُمَيَّزِينَ", "النَّائِمِينَ", "الكَسَالَى"], 
+                        answer: "النَّاجِحِينَ المُمَيَّزِينَ" 
+                    },
+                    { 
+                        excerpt: "مَعَ بِدَايَةِ العَامِ الدِّرَاسِيِّ الجَدِيدِ...",
+                        question: "مُضَادُّ كَلِمَةِ (جَدِيدٌ) فِي النَّصِّ هُوَ:", 
+                        options: ["قَرِيبٌ", "جَمِيلٌ", "قَدِيمٌ", "صَغِيرٌ"], 
+                        answer: "قَدِيمٌ" 
+                    },
+                    { 
+                        excerpt: "قَالَ أَحْمَدُ: أَتَمَنَّى أَنْ أَكُونَ مِنَ المُتَفَوِّقِينَ فِي مَدْرَسَتِي...",
+                        question: "(أَحْمَدُ) كَلِمَةٌ تَبْدَأُ بِـ:", 
+                        options: ["تَاءٍ مَرْبُوطَةٍ", "لاَمٍ قَمَرِيَّةٍ", "هَمْزَةِ قَطْعٍ", "لاَمٍ شَمْسِيَّةٍ"], 
+                        answer: "هَمْزَةِ قَطْعٍ" 
+                    },
+                    { 
+                        excerpt: "طَلَبَ المُعَلِّمُ مِنْهُمْ أَنْ يَعْرِفُوا بِأَنْفُسِهِمْ وَيَذْكُرَ كُلُّ وَاحِدٍ أُمْنِيَتَهُ...",
+                        question: "مَاذَا طَلَبَ المُعَلِّمُ مِن التَّلاَمِيذِ فِي البِدَايَةِ؟", 
+                        options: ["أَنْ يَعْرِفُوا بِأَنْفُسِهِم", "اللَّعِبَ", "الحِفْظَ الفَوْرِيَّ", "الخُرُوجَ"], 
+                        answer: "أَنْ يَعْرِفُوا بِأَنْفُسِهِم" 
+                    },
+                    { 
+                        excerpt: "قَالَ أَحْمَدُ: أَتَمَنَّى أَنْ أَكُونَ مِنَ المُتَفَوِّقِينَ فِي مَدْرَسَتِي...",
+                        question: "مَاذَا تَمَنَّى أَحْمَدُ أَنْ يَكُونَ؟", 
+                        options: ["مُعَلِّمًا", "مُهَنْدِسًا", "مِن المُمَيَّزِينَ المُتَفَوِّقِينَ", "طَبِيبًا"], 
+                        answer: "مِن المُمَيَّزِينَ المُتَفَوِّقِينَ" 
+                    },
+                    { 
+                        excerpt: "طَلَبَ المُعَلِّمُ مِن التَّلاَمِيذِ أَنْ يَعْرِفُوا بِأَنْفُسِهِم...",
+                        question: "جَمْعُ كَلِمَةِ (مُعَلِّمٌ) فِي النَّصِّ هُوَ:", 
+                        options: ["تَعْلِيمٌ", "مُعَلِّمُونَ", "عُلاَمٌ", "مَعَالِيمُ"], 
+                        answer: "مُعَلِّمُونَ" 
+                    },
+                    { 
+                        excerpt: "أَتَمَنَّى أَنْ أَكُونَ مِنَ المُتَفَوِّقِينَ فِي المَدْرَسَةِ...",
+                        question: "كَلِمَةُ (المَدْرَسَةُ) تَبْدَأُ بِـ:", 
+                        options: ["لاَمٍ شَمْسِيَّةٍ", "تَنْوِينٍ", "لاَمٍ قَمَرِيَّةٍ", "حَرْفِ عَطْفٍ"], 
+                        answer: "لاَمٍ قَمَرِيَّةٍ" 
+                    },
+                    { 
+                        excerpt: "قَالَ عُمَرُ: هَذَا عَامٌ دِرَاسِيٌّ جَدِيدٌ...",
+                        question: "الكَلِمَةُ المُنَوَّنَةُ بِتَنْوِينِ الضَّمِّ فِي الجُمْلَةِ هِيَ:", 
+                        options: ["عَامٌ", "عَامًا", "عَامٍ", "العَامُ"], 
+                        answer: "عَامٌ" 
+                    },
+                    { 
+                        excerpt: "وَأَنْ أُسْعِدَ وَالِدَيَّ بِتَفَوُّقِي فِي الدِّرَاسَةِ...",
+                        question: "إِدْخَالُ السُّرُورِ عَلَى الوَالِدَيْنِ يَكُونُ بِـ:", 
+                        options: ["التَّفَوُّقِ وَالاجْتِهَادِ", "الكَسَلِ", "الإِزْعَاجِ", "تَرْكِ الدِّرَاسَةِ"], 
+                        answer: "التَّفَوُّقِ وَالاجْتِهَادِ" 
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "الرِّيَاضُ وَالمَلِكُ الشُّجَاعُ",
+                unit: "الوِحْدَةُ الثَّانِيَةُ: رُبُوعٌ مِنْ بِلاَدِي",
+                icon: "crown",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: حُبُّ الوَطَنِ العَظِيمِ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: نُحِبُّ وَطَنَنَا الحَبِيبَ المَمْلَكَةَ العَرَبِيَّةَ السَّعُودِيَّةَ، وَنَفْتَخِرُ بِعَاصِمَتِنَا الحَبِيبَةِ الرِّيَاضِ وَتَارِيخِنَا العَرِيقِ.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَا هِيَ عَاصِمَةُ مَمْلَكَتِنَا الحَبِيبَةِ المَمْلَكَةِ العَرَبِيَّةِ السَّعُودِيَّةِ؟",
+                    options: ["مَكَّةُ المُكَرَّمَةُ", "جُدَّةُ", "الرِّيَاضُ", "أَبْهَا"],
+                    answer: "الرِّيَاضُ"
+                },
+                questions: [
+                    { 
+                        excerpt: "سَأُحَدِّثُكُمْ عَنْ مُوَحِّدِ مَمْلَكَتِنَا الحَبِيبَةِ المَمْلَكَةِ العَرَبِيَّةِ السَّعُودِيَّةِ المَلِكِ عَبْدِ العَزِيزِ آلِ سُعُودٍ...",
+                        question: "مَنْ هُوَ مُوَحِّدُ المَمْلَكَةِ العَرَبِيَّةِ السَّعُودِيَّةِ؟", 
+                        options: ["المَلِكُ فَهْدٌ", "المَلِكُ عَبْدُ العَزِيزِ", "المَلِكُ سَلْمَانُ", "المَلِكُ خَالِدٌ"], 
+                        answer: "المَلِكُ عَبْدُ العَزِيزِ" 
+                    },
+                    { 
+                        excerpt: "بَطَلُ الرِّيَاضِ الَّذِي اسْتَرَدَّهَا بِشَجَاعَتِهِ وَحِكْمَتِهِ...",
+                        question: "مُرَادِفُ كَلِمَةِ (اسْتَرَدَّهَا) فِي النَّصِّ هُوَ:", 
+                        options: ["تَرَكَهَا", "اسْتَرْجَعَهَا وَأَخَذَهَا", "بَاعَهَا", "أَضَاعَهَا"], 
+                        answer: "اسْتَرْجَعَهَا وَأَخَذَهَا" 
+                    },
+                    { 
+                        excerpt: "وَخَاضَ مَعَارِكَ عِظَامًا لِتَوْحِيدِ البِلاَدِ...",
+                        question: "مُضَادُّ كَلِمَةِ (عِظَامًا) فِي النَّصِّ هُوَ:", 
+                        options: ["كَبِيرَةً", "وَاسِعَةً", "صَغِيرَةً / قَلِيلَةً", "بَعِيدَةً"], 
+                        answer: "صَغِيرَةً / قَلِيلَةً" 
+                    },
+                    { 
+                        excerpt: "زَارَت نُورَةُ مَعَ أُسْرَتِهَا مَدِينَةَ الرِّيَاضِ عَاصِمَةَ المَمْلَكَةِ...",
+                        question: "عَاصِمَةُ المَمْلَكَةِ العَرَبِيَّةِ السَّعُودِيَّةِ هِيَ:", 
+                        options: ["مَكَّةُ المُكَرَّمَةُ", "جُدَّةُ", "الرِّيَاضُ", "المَدِينَةُ المُنَوَّرَةُ"], 
+                        answer: "الرِّيَاضُ" 
+                    },
+                    { 
+                        excerpt: "زَارَت نُورَةُ مَعَ أُسْرَتِهَا مَدِينَةَ الرِّيَاضِ فِي العُطْلَةِ...",
+                        question: "مَعَ مَنْ زَارَت نُورَةُ مَدِينَةَ الرِّيَاضِ؟", 
+                        options: ["مَعَ صَدِيقَاتِهَا", "مَعَ أُسْرَتِهَا", "مَعَ مُعَلِّمَتِهَا", "وَحْدَهَا"], 
+                        answer: "مَعَ أُسْرَتِهَا" 
+                    },
+                    { 
+                        excerpt: "وَرَفَعَ رَايَةَ التَّوْحِيدِ فِي كُلِّ أَرْجَاءِ البِلاَدِ...",
+                        question: "مُفْرَدُ كَلِمَةِ (البِلاَدُ) الوَارِدَةِ فِي النَّصِّ هُوَ:", 
+                        options: ["البَلَدِيُّ", "البُولُدُ", "البَلَدُ", "المِبْلاَدُ"], 
+                        answer: "البَلَدُ" 
+                    },
+                    { 
+                        excerpt: "تُعْتَبَرُ المَمْلَكَةُ العَرَبِيَّةُ السَّعُودِيَّةُ وَطَنَنَا المَجِيدَ...",
+                        question: "كَلِمَةُ (السَّعُودِيَّةُ) تَنْتَهِي بِـ:", 
+                        options: ["هَاءٍ (ه)", "تَاءٍ مَفْتُوحَةٍ (ت)", "تَاءٍ مَرْبُوطَةٍ (ة)", "أَلِفِ مَدٍّ"], 
+                        answer: "تَاءٍ مَرْبُوطَةٍ (ة)" 
+                    },
+                    { 
+                        excerpt: "وَرَفَعَ رَايَةَ التَّوْحِيدِ (لاَ إِلَهَ إِلاَّ اللهُ مُحَمَّدٌ رَسُولُ اللهِ)...",
+                        question: "مَا رَايَةُ التَّوْحِيدِ الَّتِي رُفِعَتْ فَوْقَ البِلاَدِ؟", 
+                        options: ["لاَ إِلَهَ إِلاَّ اللهُ مُحَمَّدٌ رَسُولُ اللهِ", "اللهُ أَكْبَرُ", "الحَمْدُ لِلَّهِ", "سُبْحَانَ اللهِ"], 
+                        answer: "لاَ إِلَهَ إِلاَّ اللهُ مُحَمَّدٌ رَسُولُ اللهِ" 
+                    },
+                    { 
+                        excerpt: "شَجَاعَةُ المَلِكِ عَبْدِ العَزِيزِ كَانَتْ سَبَبًا فِي النَّصْرِ...",
+                        question: "كَلِمَةُ (المَلِكُ) نَوْعُ اللاَّمِ فِيهَا:", 
+                        options: ["لاَمٌ قَمَرِيَّةٌ", "لاَمٌ شَمْسِيَّةٌ", "لَيْسَتْ لاَمًا", "حَرْفُ مَدٍّ"], 
+                        answer: "لاَمٌ قَمَرِيَّةٌ" 
+                    },
+                    { 
+                        excerpt: "اسْتَرَدَّ الرِّيَاضَ بِشَجَاعَتِهِ وَحِكْمَتِهِ العَالِيَةِ...",
+                        question: "الصِّفَةُ البَارِزَةُ لِلْمَلِكِ عَبْدِ العَزِيزِ فِي النَّصِّ هِيَ:", 
+                        options: ["الخَوْفُ", "الضَّعْفُ", "الشَّجَاعَةُ وَالحِكْمَةُ", "التَّرَاجُعُ"], 
+                        answer: "الشَّجَاعَةُ وَالحِكْمَةُ" 
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "مَصَايِفُنَا",
+                unit: "الوِحْدَةُ الثَّانِيَةُ: رُبُوعٌ مِنْ بِلاَدِي",
+                icon: "mountain",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: جَمَالُ طَبِيعَةِ بِلاَدِي",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: تَزْخَرُ بِلَادُنَا بِالمَنَاطِقِ الجَبَلِيَّةِ الخَضْرَاءِ الجَمِيلَةِ وَالأَجْوَاءِ العَلِيلَةِ فِي المَصَايِفِ السَّاحِرَةِ.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَا هِيَ المَدِينَةُ الجَمِيلَةُ المَعْرُوفَةُ بِعَرُوسِ المَصَايِفِ؟",
+                    options: ["تَبُوكُ", "الطَّائِفُ", "جَازَانُ", "حَائِلٌ"],
+                    answer: "الطَّائِفُ"
+                },
+                questions: [
+                    { 
+                        excerpt: "بَدَأَ مُهَنَّدٌ الحَدِيثَ قَائِلًا: مِنْ المُدُنِ الَّتِي زُرْتُهَا وَأَعْجَبَتْنِي مُحَافَظَةُ الطَّائِفِ عَرُوسُ المَصَايِفِ...",
+                        question: "مَا المَدِينَةُ الَّتِي تُسَمَّى عَرُوسَ المَصَايِفِ فِي النَّصِّ؟", 
+                        options: ["البَاحَةُ", "أَبْهَا", "الطَّائِفُ", "نَجْرَانُ"], 
+                        answer: "الطَّائِفُ" 
+                    },
+                    { 
+                        excerpt: "وَتَمْتَازُ الطَّائِفُ بِبَسَاتِينِهَا وَنَسِيمِهَا العَلِيلِ...",
+                        question: "مُرَادِفُ كَلِمَةِ (العَلِيلِ) فِي وَصْفِ النَّسِيمِ هُوَ:", 
+                        options: ["البَارِدُ المُنْعِشُ", "الحَارُّ", "المُتْعِبُ", "المَرِيضُ"], 
+                        answer: "البَارِدُ المُنْعِشُ" 
+                    },
+                    { 
+                        excerpt: "مَصَايِفُنَا الجَبَلِيَّةُ تَكْثُرُ فِيهَا الأَشْجَارُ وَالمُنْتَزَهَاتُ...",
+                        question: "مُضَادُّ كَلِمَةِ (تَكْثُرُ) هُوَ:", 
+                        options: ["تَزِيدُ", "تَقِلُّ", "تَكْبُرُ", "تَنْتَشِرُ"], 
+                        answer: "تَقِلُّ" 
+                    },
+                    { 
+                        excerpt: "وَتَضُمُّ الطَّائِفُ مُنْتَزَهَاتٍ كَثِيرَةً مِنْهَا الشَّفَا وَالهَدَا...",
+                        question: "مِنْ أَشْهَرِ المُنْتَزَهَاتِ فِي الطَّائِفِ الوَارِدَةِ فِي النَّصِّ:", 
+                        options: ["غَابَةُ رَغْدَانَ", "الشَّفَا وَالهَدَا", "السَّوْدَةُ", "الأُخْدُودُ"], 
+                        answer: "الشَّفَا وَالهَدَا" 
+                    },
+                    { 
+                        excerpt: "طَلَبَ المُعَلِّمُ مِن التَّلاَمِيذِ التَّحَدُّثَ، فَبَدَأَ مُهَنَّدٌ الحَدِيثَ...",
+                        question: "مَنْ بَدَأَ الحَدِيثَ عَن المَصَايِفِ أَمَامَ التَّلاَمِيذِ؟", 
+                        options: ["فَوَّازٌ", "عَادِلٌ", "مُهَنَّدٌ", "أَحْمَدُ"], 
+                        answer: "مُهَنَّدٌ" 
+                    },
+                    { 
+                        excerpt: "تَنْتَشِرُ فِي بِلاَدِنَا العَدِيدُ مِن المَصَايِفِ الجَمِيلَةِ...",
+                        question: "مُفْرَدُ كَلِمَةِ (المَصَايِفُ) هُوَ:", 
+                        options: ["صَحِيفَةٌ", "مَصِيفٌ", "صَيْفٌ", "مُضِيفٌ"], 
+                        answer: "مَصِيفٌ" 
+                    },
+                    { 
+                        excerpt: "تَتَمَيَّزُ المَنَاطِقُ الجَبَلِيَّةُ بِأَجْوَائِهَا الرَّائِعَةِ...",
+                        question: "كَلِمَةُ (الجَبَلِيَّةُ) تَنْتَهِي بِـ:", 
+                        options: ["تَاءٍ مَرْبُوطَةٍ", "يَاءٍ وَتَاءٍ", "هَاءٍ", "أَلِفٍ"], 
+                        answer: "تَاءٍ مَرْبُوطَةٍ" 
+                    },
+                    { 
+                        excerpt: "زَارَ مُهَنَّدٌ مَدِينَةَ الطَّائِفِ مَعَ عَائِلَتِهِ...",
+                        question: "نَوْعُ اللاَّمِ فِي كَلِمَةِ (الطَّائِفُ) هُوَ:", 
+                        options: ["لاَمٌ قَمَرِيَّةٌ", "لاَمٌ شَمْسِيَّةٌ", "لَيْسَتْ لاَمًا", "تَنْوِينٌ"], 
+                        answer: "لاَمٌ شَمْسِيَّةٌ" 
+                    },
+                    { 
+                        excerpt: "يَقْصِدُ السَّائِحُونَ المَصَايِفَ لِلاِسْتِمْتَاعِ بِبُرُودَةِ جَوِّهَا...",
+                        question: "لِمَاذَا يَقْصِدُ النَّاسُ المَصَايِفَ فِي الصَّيْفِ؟", 
+                        options: ["لِبُرُودَةِ جَوِّهَا وَجَمَالِهَا", "لِحَرَارَتِهَا", "لِأَنَّهَا قَاحِلَةٌ", "لِلاِزْدِحَامِ"], 
+                        answer: "لِبُرُودَةِ جَوِّهَا وَجَمَالِهَا" 
+                    },
+                    { 
+                        excerpt: "طَلَبَ المُعَلِّمُ مِن التَّلاَمِيذِ التَّحَدُّثَ عَن المَصَايِفِ...",
+                        question: "الجُمْلَةُ الَّتِي تَبْدَأُ بِفِعْلٍ مَاضٍ هِيَ:", 
+                        options: ["التَّلاَمِيذُ الأَذْكِيَاءُ", "طَلَبَ المُعَلِّمُ", "الجَوُّ جَمِيلٌ", "فِي المَدْرَسَةِ"], 
+                        answer: "طَلَبَ المُعَلِّمُ" 
+                    }
+                ]
+            },
+            {
+                id: 5,
+                title: "التَّعَاوُنُ",
+                unit: "الوِحْدَةُ الثَّالِثَةُ: أَخْلاَقُ المُسْلِمِ",
+                icon: "handshake",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: رُوحُ العَمَلِ الجَمَاعِيِّ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: يَدٌ وَاحِدَةٌ لا تُصَفِّقُ! بِالتَّعَاوُنِ نُحَافِظُ عَلَى بِيئَتِنَا وَنَجْعَلُ مَدْرَسَتَنَا حَدِيقَةً غَنَّاءَ جَمِيلَةً.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَاذَا نَسْتَفِيدُ مِنْ رُوحِ التَّعَاوُنِ بَيْنَ الأَصْدِقَاءِ؟",
+                    options: ["إِنْجَازَ الأَعْمَالِ بِسُهُولَةٍ وَمَحَبَّةٍ", "التَّشَاجُرَ وَالاِخْتِلاَفَ", "تَأْخِيرَ الأَعْمَالِ", "التَّعَبَ الشَّدِيدَ"],
+                    answer: "إِنْجَازَ الأَعْمَالِ بِسُهُولَةٍ وَمَحَبَّةٍ"
+                },
+                questions: [
+                    { 
+                        excerpt: "فِي يَوْمِ البِيئَةِ العَالَمِيِّ، طَلَبَ المُعَلِّمُ مِنْ تَلاَمِيذِهِ المُشَارَكَةَ بِاقْتِرَاحَاتٍ...",
+                        question: "بِمُنَاسَبَةِ أَيِّ يَوْمٍ طَلَبَ المُعَلِّمُ الاِقْتِرَاحَاتِ؟", 
+                        options: ["يَوْمِ المُعَلِّمِ", "يَوْمِ البِيئَةِ العَالَمِيِّ", "اليَوْمِ الوَطَنِيِّ", "بِدَايَةِ العَامِ"], 
+                        answer: "يَوْمِ البِيئَةِ العَالَمِيِّ" 
+                    },
+                    { 
+                        excerpt: "بِالتَّعَاوُنِ نَجْتَازُ المَصَاعِبَ وَنُحَقِّقُ النَّجَاحَ...",
+                        question: "مُرَادِفُ كَلِمَةِ (نَجْتَازُ) فِي النَّصِّ هُوَ:", 
+                        options: ["نَخَافُ", "نَتَخَطَّى وَنَعْبُرُ", "نَتْرُكُ", "نَرْجِعُ"], 
+                        answer: "نَتَخَطَّى وَنَعْبُرُ" 
+                    },
+                    { 
+                        excerpt: "فَقَالَ فَوَّازٌ: فِي المَدْرَسَةِ سَاحَةٌ وَاسِعَةٌ، لِمَ لاَ نَزْرَعُهَا؟",
+                        question: "مُضَادُّ كَلِمَةِ (وَاسِعَةٌ) هُوَ:", 
+                        options: ["كَبِيرَةٌ", "طَوِيلَةٌ", "ضَيِّقَةٌ", "عَالِيَةٌ"], 
+                        answer: "ضَيِّقَةٌ" 
+                    },
+                    { 
+                        excerpt: "التَّعَاوُنُ خُلُقٌ إِسْلاَمِيٌّ نَبِيلٌ يَجْعَلُ المُجْتَمَعَ مُتَمَاسِكًا...",
+                        question: "نَوْعُ اللاَّمِ فِي كَلِمَةِ (التَّعَاوُنُ) هُوَ:", 
+                        options: ["لاَمٌ قَمَرِيَّةٌ", "لاَمٌ شَمْسِيَّةٌ", "لَيْسَتْ لاَمًا", "تَنْوِينٌ"], 
+                        answer: "لاَمٌ شَمْسِيَّةٌ" 
+                    },
+                    { 
+                        excerpt: "فَقَالَ فَوَّازٌ: فِي المَدْرَسَةِ سَاحَةٌ وَاسِعَةٌ، لِمَ لاَ نَزْرَعُهَا لِتُصْبِحَ حَدِيقَةً؟",
+                        question: "مَاذَا اقْتَرَحَ فَوَّازٌ لِلاِسْتِفَادَةِ مِن السَّاحَةِ؟", 
+                        options: ["بِنَاءَ مَلْعَبٍ", "جَعْلَهَا مَوْقِفًا", "زِرَاعَتَهَا لِتُصْبِحَ حَدِيقَةً", "تَرْكَهَا فَارِغَةً"], 
+                        answer: "زِرَاعَتَهَا لِتُصْبِحَ حَدِيقَةً" 
+                    },
+                    { 
+                        excerpt: "فِي المَدْرَسَةِ سَاحَةٌ وَاسِعَةٌ...",
+                        question: "جَمْعُ كَلِمَةِ (سَاحَةٌ) هُوَ:", 
+                        options: ["سَاحَاتٌ", "مُسُوحٌ", "سِيَاحٌ", "مَسَاحٌ"], 
+                        answer: "سَاحَاتٌ" 
+                    },
+                    { 
+                        excerpt: "بِالتَّعَاوُنِ نَتَغَلَّبُ عَلَى الصَّعُوبَاتِ دَائِمًا...",
+                        question: "مُفْرَدُ كَلِمَةِ (الصَّعُوبَاتُ) هُوَ:", 
+                        options: ["صَعْبَةٌ", "صُعُوبَةٌ", "صِعَابٌ", "أَصْعَبُ"], 
+                        answer: "صُعُوبَةٌ" 
+                    },
+                    { 
+                        excerpt: "إِنَّ التَّعَاوُنَ يُؤَدِّي إِلَى إِنْجَازِ الأَعْمَالِ بِسُرْعَةٍ وَسُهُولَةٍ...",
+                        question: "مَا الفَائِدَةُ العَظِيمَةُ مِنْ رُوحِ التَّعَاوُنِ؟", 
+                        options: ["إِنْجَازُ الأَعْمَالِ بِسُهُولَةٍ", "التَّشَاجُرُ", "تَأْخِيرُ العَمَلِ", "التَّعَبُ"], 
+                        answer: "إِنْجَازُ الأَعْمَالِ بِسُهُولَةٍ" 
+                    },
+                    { 
+                        excerpt: "نُحَافِظُ عَلَى نَظَافَةِ المَدْرَسَةِ وَجَمَالِهَا...",
+                        question: "كَلِمَةُ (المَدْرَسَةُ) تَبْدَأُ بِـ:", 
+                        options: ["لاَمٍ شَمْسِيَّةٍ", "لاَمٍ قَمَرِيَّةٍ", "هَمْزَةِ قَطْعٍ", "تَنْوِينٍ"], 
+                        answer: "لاَمٍ قَمَرِيَّةٍ" 
+                    },
+                    { 
+                        excerpt: "فَقَالَ فَوَّازٌ: لِمَ لاَ نَزْرَعُهَا؟",
+                        question: "الأُسْلُوبُ فِي (لِمَ لاَ نَزْرَعُهَا؟) هُوَ أُسْلُوبُ:", 
+                        options: ["اسْتِفْهَامٍ وَاقْتِرَاحٍ", "تَعَجُّبٍ", "نَهْيٍ", "أَمْرٍ"], 
+                        answer: "اسْتِفْهَامٍ وَاقْتِرَاحٍ" 
+                    }
+                ]
+            },
+            {
+                id: 6,
+                title: "الإِيثَارُ",
+                unit: "الوِحْدَةُ الثَّالِثَةُ: أَخْلاَقُ المُسْلِمِ",
+                icon: "heart",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: مَحَبَّةُ الخَيْرِ لِلْآخَرِينَ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: الإِيثَارُ هُوَ أَنْ نُحِبَّ لِإِخْوَانِنَا وَأَصْدِقَائِنَا مَا نُحِبُّهُ لِأَنْفُسِنَا، وَنُقَدِّمَ الخَيْرَ بِكُلِّ حُبٍّ.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَا مَعْنَى خُلُقِ الإِيثَارِ الجَمِيلِ؟",
+                    options: ["الأَنَانِيَّةُ وَحُبُّ الذَّاتِ", "تَفْضِيلُ الخَيْرِ وَمُسَاعَدَةُ الآخَرِينَ", "البُخْلُ", "تَرْكُ الأَصْدِقَاءِ"],
+                    answer: "تَفْضِيلُ الخَيْرِ وَمُسَاعَدَةُ الآخَرِينَ"
+                },
+                questions: [
+                    { 
+                        excerpt: "قَرَّرَ فَوَّازٌ شِرَاءَ كِتَابٍ مُفِيدٍ مُسْتَثْمِرًا نُقُودًا كَانَ قَدْ جَمَعَهَا فِي حَصَّالَتِهِ الصَّغِيرَةِ...",
+                        question: "أَيْنَ جَمَعَ فَوَّازٌ النُّقُودَ لِشِرَاءِ الكِتَابِ؟", 
+                        options: ["فِي جَيْبِهِ", "فِي حَصَّالَتِهِ الصَّغِيرَةِ", "فِي المَصْرِفِ", "عَلَى الطَّاوِلَةِ"], 
+                        answer: "فِي حَصَّالَتِهِ الصَّغِيرَةِ" 
+                    },
+                    { 
+                        excerpt: "فَسَأَلَ وَالِدَهُ: مَا مَعْنَى الإِيثَارِ يَا أَبِي؟ قَالَ الوَالِدُ: هُوَ تَفْضِيلُ الغَيْرِ عَلَى النَّفْسِ...",
+                        question: "مَعْنَى (الإِيثَارُ) فِي القِصَّةِ هُوَ:", 
+                        options: ["الأَنَانِيَّةُ", "تَفْضِيلُ الغَيْرِ عَلَى النَّفْسِ", "البُخْلُ", "السَّرِقَةُ"], 
+                        answer: "تَفْضِيلُ الغَيْرِ عَلَى النَّفْسِ" 
+                    },
+                    { 
+                        excerpt: "يُؤْثِرُونَ عَلَى أَنْفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ، فَيُطْعِمُونَ الجَائِعَ حَتَّى يَشْبَعَ...",
+                        question: "مُضَادُّ كَلِمَةِ (يَشْبَعُ) هُوَ:", 
+                        options: ["يَرْوَى", "يَنَامُ", "يَجُوعُ", "يَفْرَحُ"], 
+                        answer: "يَجُوعُ" 
+                    },
+                    { 
+                        excerpt: "وَقَدْ ضَرَبَت أُمُّ المُؤْمِنِينَ عَائِشَةُ رَضِيَ اللهُ عَنْهَا أَرْوَعَ الأَمْثِلَةِ فِي الإِيثَارِ...",
+                        question: "ضَرَبَت أُمُّ المُؤْمِنِينَ عَائِشَةُ مِثَالًا عَالِيًا فِي:", 
+                        options: ["البُخْلِ", "السَّفَرِ", "الإِيثَارِ وَالعَطَاءِ", "التِّجَارَةِ"], 
+                        answer: "الإِيثَارِ وَالعَطَاءِ" 
+                    },
+                    { 
+                        excerpt: "قَرَّرَ فَوَّازٌ شِرَاءَ كِتَابٍ مُفِيدٍ لِيَقْرَأَهُ فِي المَنْزِلِ...",
+                        question: "مَاذَا قَرَّرَ فَوَّازٌ أَنْ يَفْعَلَ بِالنُّقُودِ؟", 
+                        options: ["شِرَاءَ لُعْبَةٍ", "شِرَاءَ كِتَابٍ مُفِيدٍ", "شِرَاءَ حَلْوَى", "ادِّخَارَهَا"], 
+                        answer: "شِرَاءَ كِتَابٍ مُفِيدٍ" 
+                    },
+                    { 
+                        excerpt: "مُسْتَثْمِرًا نُقُودًا كَانَ قَدْ جَمَعَهَا فِي حَصَّالَتِهِ...",
+                        question: "جَمْعُ كَلِمَةِ (حَصَّالَةٌ) هُوَ:", 
+                        options: ["حُصُلٌ", "حَصَّالاَتٌ", "حَصَايِلُ", "مَحَاصِلُ"], 
+                        answer: "حَصَّالاَتٌ" 
+                    },
+                    { 
+                        excerpt: "وَقَفَ فَوَّازٌ أَمَامَ المَكْتَبَةِ صَبَاحًا لِيَشْتَرِيَ القِصَّةَ المُفِيدَةَ...",
+                        question: "تُعْتَبَرُ كَلِمَةُ (صَبَاحًا) فِي الجُمْلَةِ السَّابِقَةِ:", 
+                        options: ["ظَرْفَ زَمَانٍ", "ظَرْفَ مَكَانٍ", "حَرْفَ جَرٍّ", "فِعْلًا مَاضِيًا"], 
+                        answer: "ظَرْفَ زَمَانٍ" 
+                    },
+                    { 
+                        excerpt: "فَتَوَقَّفَ عِنْدَ قِصَّةٍ عُنْوَانُهَا (الإِيثَارُ)...",
+                        question: "نَوْعُ اللاَّمِ فِي كَلِمَةِ (الإِيثَارُ) هُوَ:", 
+                        options: ["لاَمٌ شَمْسِيَّةٌ", "لاَمٌ قَمَرِيَّةٌ", "لَيْسَتْ لاَمًا", "حَرْفُ جَرٍّ"], 
+                        answer: "لاَمٌ قَمَرِيَّةٌ" 
+                    },
+                    { 
+                        excerpt: "قَالَ لَهُ الأَبُ: اشْتَرِ القِصَّةَ وَاقْرَأْهَا لِتَعْرِفَ المَعْنَى...",
+                        question: "مَا نَصِيحَةُ الوَالِدِ لِفَوَّازٍ لِمَعْرِفَةِ المَعْنَى؟", 
+                        options: ["تَرْكُ القِصَّةِ", "سُؤَالُ الصَّدِيقِ", "شِرَاءُ القِصَّةِ وَقِرَاءَتُهَا", "النَّوْمُ"], 
+                        answer: "شِرَاءُ القِصَّةِ وَقِرَاءَتُهَا" 
+                    },
+                    { 
+                        excerpt: "فَالإِيثَارُ خُلُقٌ إِسْلاَمِيٌّ يَعْكِسُ مَحَبَّةَ الخَيْرِ لِلآخَرِينَ...",
+                        question: "خُلُقُ الإِيثَارِ يُعْتَبَرُ مِنْ أَعْلَى مَرَاتِبِ:", 
+                        options: ["الأَخْلاَقِ الإِسْلاَمِيَّةِ", "البُخْلِ", "التَّفَاخُرِ", "اللَّهْوِ"], 
+                        answer: "الأَخْلاَقِ الإِسْلاَمِيَّةِ" 
+                    }
+                ]
+            },
+            {
+                id: 7,
+                title: "الأَقْمَارُ الصِّنَاعِيَّةُ",
+                unit: "الوِحْدَةُ الرَّابِعَةُ: وَسَائِلُ الاِتِّصَالاَتِ",
+                icon: "satellite",
+                enrichmentTitle: "🌟 المَهَمَّةُ الأَخِيرَةُ: عَالَمُ التَّوَاصُلِ الجَمِيلِ",
+                enrichmentExcerpt: "🌟 المَهَمَّةُ الأَخِيرَةُ: سَهَّلَت الأَقْمَارُ الصِّنَاعِيَّةُ تَنَاقُلَ العُلُومِ وَالأَخْبَارِ وَالتَّوَاصُلَ بَيْنَ كُلِّ مَنَاطِقِ العَالَمِ بِسُرْعَةٍ عَجِيبَةٍ.",
+                enrichmentQuestion: {
+                    question: "💖 سُؤَالُ المَهَمَّةِ الأَخِيرَةِ: مَا فَائِدَةُ الأَقْمَارِ الصِّنَاعِيَّةِ فِي حَيَاتِنَا؟",
+                    options: ["نَقْلُ الاِتِّصَالاَتِ وَالأَخْبَارِ وَمَعْرِفَةُ الطَّقْسِ", "تَرْكُ المَنَازِلِ", "إِغْلَاقُ المَدَارِسِ", "النَّوْمُ الطَّوِيلُ"],
+                    answer: "نَقْلُ الاِتِّصَالاَتِ وَالأَخْبَارِ وَمَعْرِفَةُ الطَّقْسِ"
+                },
+                questions: [
+                    { 
+                        excerpt: "اجْتَمَعَت الأُسْرَةُ لِتُشَاهِدَ بَثًّا مُبَاشِرًا لِيَوْمِ عَرَفَةَ مِنْ مَكَّةَ المُكَرَّمَةِ...",
+                        question: "مَاذَا كَانَت تُشَاهِدُ الأُسْرَةُ فِي البَثِّ المُبَاشِرِ؟", 
+                        options: ["يَوْمَ العِيدِ", "يَوْمَ عَرَفَةَ", "مُبَارَاةً", "افْتِتَاحًا"], 
+                        answer: "يَوْمَ عَرَفَةَ" 
+                    },
+                    { 
+                        excerpt: "تُدَارُ الأَقْمَارُ فِي الفَضَاءِ وَتَدُورُ حَوْلَ الأَرْضِ لِنَقْلِ المَعْلُومَاتِ...",
+                        question: "مُرَادِفُ كَلِمَةِ (تَدُورُ) فِي النَّصِّ هُوَ:", 
+                        options: ["تَتَوَقَّفُ", "تَلِفُّ وَتَتَحَرَّكُ", "تَقْفِزُ", "تَسْتَقِرُّ"], 
+                        answer: "تَلِفُّ وَتَتَحَرَّكُ" 
+                    },
+                    { 
+                        excerpt: "تَسْبَحُ الأَقْمَارُ الصِّنَاعِيَّةُ فِي الفَضَاءِ الخَارِجِيِّ لِلأَرْضِ...",
+                        question: "مُضَادُّ كَلِمَةِ (الخَارِجِيُّ) هُوَ:", 
+                        options: ["البَعِيدُ", "الدَّاخِلِيُّ", "الوَاسِعُ", "العَالِي"], 
+                        answer: "الدَّاخِلِيُّ" 
+                    },
+                    { 
+                        excerpt: "سُمِّيَت بِالأَقْمَارِ لِأَنَّهَا تُشْبِهُ القَمَرَ الطَّبِيعِيَّ فِي دَوَرَانِهِ حَوْلَ الأَرْضِ...",
+                        question: "لِمَاذَا سُمِّيَت بالأَقْمَارِ الصِّنَاعِيَّةِ؟", 
+                        options: ["مَصْنُوعَةٌ مِنْ خَشَبٍ", "تُنِيرُ المَنْزِلَ", "لِأَنَّهَا تُشْبِهُ القَمَرَ فِي دَوَرَانِهِ", "طَائِرَةٌ"], 
+                        answer: "لِأَنَّهَا تُشْبِهُ القَمَرَ فِي دَوَرَانِهِ" 
+                    },
+                    { 
+                        excerpt: "فَسَأَلَت دَانِيَةُ وَالِدَهَا: كَيْفَ تُنْقَلُ صُوَرُ التَّلْفَازِ يَا أَبِي؟",
+                        question: "مَنْ هِيَ الَّتِي سَأَلَت وَالِدَهَا عَنْ نَقْلِ الصُّوَرِ؟", 
+                        options: ["نُورَةُ", "هِنْدٌ", "دَانِيَةُ", "فَاطِمَةُ"], 
+                        answer: "دَانِيَةُ" 
+                    },
+                    { 
+                        excerpt: "تُطْلَقُ الأَقْمَارُ الصِّنَاعِيَّةُ إِلَى الفَضَاءِ...",
+                        question: "جَمْعُ كَلِمَةِ (قَمَرٌ) هُوَ:", 
+                        options: ["أَقْمَارٌ", "قُمُورٌ", "مَقَامِرُ", "تَقَامِيرُ"], 
+                        answer: "أَقْمَارٌ" 
+                    },
+                    { 
+                        excerpt: "تُنْقَلُ صُوَرُ التَّلْفَازِ وَالمَشَاهِدُ المُبَاشِرَةُ...",
+                        question: "مُفْرَدُ كَلِمَةِ (صُوَرٌ) هُوَ:", 
+                        options: ["صَائِرٌ", "صُورَةٌ", "تِصْوَارٌ", "مُصَوَّرٌ"], 
+                        answer: "صُورَةٌ" 
+                    },
+                    { 
+                        excerpt: "تُنْقَلُ الصُّوَرُ حَيَّةً عَبْرَ التَّلْفَازِ...",
+                        question: "نَوْعُ اللاَّمِ فِي كَلِمَةِ (التَّلْفَازُ) هُوَ:", 
+                        options: ["لاَمٌ شَمْسِيَّةٌ", "لاَمٌ قَمَرِيَّةٌ", "لَيْسَتْ لاَمًا", "تَنْوِينٌ"], 
+                        answer: "لاَمٌ شَمْسِيَّةٌ" 
+                    },
+                    { 
+                        excerpt: "تُسَاهِمُ الأَقْمَارُ فِي نَقْلِ الاِتِّصَالاَتِ وَحَالَةِ الطَّقْسِ وَالرَّصْدِ...",
+                        question: "مَا الفَائِدَةُ المُهِمَّةُ لِلأَقْمَارِ الصِّنَاعِيَّةِ؟", 
+                        options: ["إِضَاءَةُ الشَّوَارِعِ", "نَقْلُ الاِتِّصَالاَتِ وَالرَّصْدِ الجَوِّيِّ", "طَهْيُ الطَّعَامِ", "المَلاَبِسُ"], 
+                        answer: "نَقْلُ الاِتِّصَالاَتِ وَالرَّصْدِ الجَوِّيِّ" 
+                    },
+                    { 
+                        excerpt: "فَسَأَلَت دَانِيَةُ: يَا أَبِي، كَيْفَ تُنْقَلُ الصُّوَرُ؟",
+                        question: "الأُسْلُوبُ فِي قَوْلِ دَانِيَةَ (يَا أَبِي) هُوَ أُسْلُوبُ:", 
+                        options: ["نِدَاءٍ", "نَهْيٍ", "تَعَجُّبٍ", "أَمْرٍ"], 
+                        answer: "نِدَاءٍ" 
+                    }
+                ]
+            }
+        ];
+
+        // Utility: Shuffle Array
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMissionsGrid();
+        });
+
+        // Step 1: Registration Handler
+        function handleRegistration(event) {
+            event.preventDefault();
+            playSound('click');
+            const nameInput = document.getElementById('student-name').value.trim();
+            const classInput = document.getElementById('student-class').value.trim();
+
+            if (!nameInput || !classInput) return;
+
+            studentName = nameInput;
+            studentClass = classInput;
+
+            document.getElementById('display-student-name').textContent = studentName;
+            document.getElementById('registration-screen').classList.add('hidden');
+            document.getElementById('missions-screen').classList.remove('hidden');
+            renderMissionsGrid();
+        }
+
+        // Render Sequential Missions Grid
+        function renderMissionsGrid() {
+            const container = document.getElementById('missions-grid');
+            container.innerHTML = '';
+
+            let score = completedMissions.length;
+
+            lessonsData.forEach((lesson, index) => {
+                const isCompleted = completedMissions.includes(lesson.id);
+                
+                // Sequential Unlocking Logic:
+                // First lesson is unlocked. Subsequent lessons unlock if the previous one is completed.
+                const isUnlocked = (index === 0) || completedMissions.includes(lessonsData[index - 1].id);
+
+                let statusBadgeHtml = '';
+                let buttonHtml = '';
+
+                if (isCompleted) {
+                    statusBadgeHtml = `
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full border border-emerald-300 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> مُكْتَمَلَةٌ
+                        </span>
+                    `;
+                    buttonHtml = `
+                        <button onclick="showCertificateForLesson(${lesson.id})" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-3 rounded-2xl shadow transition text-sm flex items-center justify-center gap-2 border border-emerald-400">
+                            <span>عَرْضُ الشَّهَادَةِ</span>
+                            <i class="fa-solid fa-award"></i>
+                        </button>
+                    `;
+                } else if (isUnlocked) {
+                    statusBadgeHtml = `
+                        <span class="bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-full border border-amber-300 pulse-glow flex items-center gap-1">
+                            <i class="fa-solid fa-unlock"></i> مُتَاحَةٌ الآنَ
+                        </span>
+                    `;
+                    buttonHtml = `
+                        <button onclick="startMission(${lesson.id})" class="w-full bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-black py-3 rounded-2xl shadow-lg transition text-sm flex items-center justify-center gap-2 border border-amber-300">
+                            <span>بَدْءُ المَهَمَّةِ</span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    `;
+                } else {
+                    statusBadgeHtml = `
+                        <span class="bg-slate-200 text-slate-600 text-xs font-black px-3 py-1 rounded-full border border-slate-300 flex items-center gap-1">
+                            <i class="fa-solid fa-lock"></i> مُغْلَقَةٌ
+                        </span>
+                    `;
+                    buttonHtml = `
+                        <button disabled class="w-full bg-slate-200 text-slate-400 font-black py-3 rounded-2xl text-sm flex items-center justify-center gap-2 cursor-not-allowed border border-slate-300">
+                            <span>أَكْمِلِي المَهَمَّةَ السَّابِقَةَ أَوَّلًا</span>
+                            <i class="fa-solid fa-lock"></i>
+                        </button>
+                    `;
+                }
+
+                container.innerHTML += `
+                    <div class="detective-card glass-panel rounded-3xl p-6 border-2 ${isUnlocked ? 'border-amber-300' : 'border-slate-200 opacity-80'} shadow-md flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-black text-amber-800 bg-amber-50 px-3 py-1 rounded-xl border border-amber-200">${lesson.unit}</span>
+                                ${statusBadgeHtml}
+                            </div>
+                            <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center text-3xl text-amber-800 mb-4 shadow-inner border border-amber-300">
+                                <i class="fa-solid fa-${lesson.icon}"></i>
+                            </div>
+                            <h3 class="text-xl font-black text-slate-900 mb-2">دَرْسُ: ${lesson.title}</h3>
+                            <p class="text-xs text-slate-600 font-bold mb-4">10 أَسْئِلَةِ فَهْمٍ وَتَرَاكِيبَ + لُغْزِ الإِثْرَاءِ</p>
+                        </div>
+                        ${buttonHtml}
+                    </div>
+                `;
+            });
+
+            document.getElementById('total-score').textContent = score;
+        }
+
+        // Stealth Briefing Modal Actions
+        function startStealthBriefingModal() {
+            playSound('click');
+            document.getElementById('stealth-briefing-modal').classList.remove('hidden');
+        }
+
+        function closeStealthBriefingModal() {
+            playSound('click');
+            document.getElementById('stealth-briefing-modal').classList.add('hidden');
+        }
+
+        // Start a Mission Quiz
+        function startMission(missionId) {
+            playSound('click');
+            currentMissionId = missionId;
+            currentQuestionIndex = 0;
+            const lesson = lessonsData.find(l => l.id === missionId);
+
+            const formattedQuestions = lesson.questions.map(q => ({ 
+                ...q, 
+                isEnrichment: false 
+            }));
+
+            const enrichmentItem = {
+                question: lesson.enrichmentQuestion.question,
+                options: lesson.enrichmentQuestion.options,
+                answer: lesson.enrichmentQuestion.answer,
+                isEnrichment: true,
+                title: lesson.enrichmentTitle,
+                excerpt: lesson.enrichmentExcerpt
+            };
+
+            currentActiveQuestions = [...formattedQuestions, enrichmentItem];
+
+            document.getElementById('mission-title-badge').textContent = `مَهَمَّةُ: ${lesson.title}`;
+            document.getElementById('missions-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderCurrentStep();
+        }
+
+        // Render Current Step & Sync Text Excerpt directly with Question Context
+        function renderCurrentStep() {
+            const totalSteps = currentActiveQuestions.length; // 11 steps
+            const currentItem = currentActiveQuestions[currentQuestionIndex];
+
+            const percent = Math.round(((currentQuestionIndex + 1) / totalSteps) * 100);
+            document.getElementById('step-indicator-text').textContent = currentItem.isEnrichment ? `🌟 المَهَمَّةُ الأَخِيرَةُ (رَقْمُ 11)` : `المَرْحَلَةُ ${currentQuestionIndex + 1} مِنْ ${totalSteps}`;
+            document.getElementById('step-progress-percent') ? document.getElementById('step-progress-percent').textContent = percent + '%' : null;
+            document.getElementById('step-progress-bar').style.width = percent + '%';
+
+            const excerptBoxWrapper = document.getElementById('excerpt-box-wrapper');
+            const excerptBoxTitle = document.getElementById('excerpt-box-title');
+            const missionExcerpt = document.getElementById('mission-excerpt');
+
+            if (currentItem.isEnrichment) {
+                excerptBoxWrapper.className = 'bg-gradient-to-r from-pink-50 via-purple-50 to-amber-50 text-indigo-950 border-r-8 border-pink-400 p-6 rounded-2xl mb-6 shadow-xl border-2 border-pink-200 relative overflow-hidden';
+                excerptBoxTitle.innerHTML = `<span class="text-2xl animate-bounce">🎈</span> <span class="text-pink-600 font-black text-lg md:text-xl">${currentItem.title}</span>`;
+                missionExcerpt.className = "text-indigo-900 text-sm md:text-base leading-relaxed font-black mt-2 bg-white/90 p-4 rounded-xl border border-pink-200 shadow-sm";
+                missionExcerpt.textContent = currentItem.excerpt;
+            } else {
+                excerptBoxWrapper.className = 'bg-amber-50/90 border-r-8 border-amber-400 p-5 rounded-2xl mb-6 shadow-inner border border-amber-200';
+                excerptBoxTitle.innerHTML = `<span class="text-xl">📖</span> اقْرَئِي النَّصَّ بِدِقَّةٍ وَاسْتَخْرِجِي الدَّلِيلَ:`;
+                missionExcerpt.className = "text-slate-800 text-sm md:text-base leading-loose font-bold";
+                missionExcerpt.textContent = currentItem.excerpt;
+            }
+
+            const container = document.getElementById('single-question-container');
+            const shuffledOptions = shuffleArray(currentItem.options);
+
+            let optionsHtml = '';
+            shuffledOptions.forEach((opt) => {
+                optionsHtml += `
+                    <button onclick="handleAnswerSelection('${opt.replace(/'/g, "\\'")}', '${currentItem.answer.replace(/'/g, "\\'")}')" class="w-full text-right p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-400 hover:bg-amber-50/80 cursor-pointer transition font-black text-slate-800 bg-white shadow-sm flex items-center justify-between text-sm md:text-base">
+                        <span>${opt}</span>
+                        <i class="fa-solid fa-circle-chevron-left text-amber-500"></i>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="bg-white p-6 md:p-8 rounded-3xl border-2 ${currentItem.isEnrichment ? 'border-pink-300 shadow-pink-100 bg-gradient-to-b from-white to-pink-50/30' : 'border-amber-200'} shadow-md">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="${currentItem.isEnrichment ? 'bg-pink-100 text-pink-900 border border-pink-300' : 'bg-rose-100 text-rose-800'} text-xs px-3 py-1 rounded-full font-black">
+                            ${currentItem.isEnrichment ? '🎈 مَهَمَّةُ الخِتَامِ الجَمِيلَةِ' : 'سُؤَالُ المَرْحَلَةِ ' + (currentQuestionIndex + 1)}
+                        </span>
+                    </div>
+                    <h4 class="font-black text-indigo-950 mb-6 text-lg md:text-xl flex items-start gap-3">
+                        <span class="${currentItem.isEnrichment ? 'text-pink-500 text-2xl animate-spin' : 'text-rose-500 text-2xl'}">💖</span> 
+                        <span>${currentItem.question}</span>
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        ${optionsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Handle Answer Selection Logic with Sequential Flow
+        function handleAnswerSelection(selectedOpt, correctOpt) {
+            if (selectedOpt === correctOpt) {
+                playSound('correct');
+
+                if (currentQuestionIndex < currentActiveQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    showProgressModal("أَحْسَنْتِ يَا ذَكِيَّةُ! إِجَابَةٌ صَحِيحَةٌ 🕵️‍♀️", "تَمَّ اسْتِخْرَاجُ الدَّلِيلِ بِنَجَاحٍ. اسْتَمِرِّي فِي الحَلِّ بِنَفْسِ التَّفَوُّقِ!");
+                } else {
+                    playSound('win');
+                    // Mark current mission as completed
+                    if (!completedMissions.includes(currentMissionId)) {
+                        completedMissions.push(currentMissionId);
+                        localStorage.setItem('completed_missions_185', JSON.stringify(completedMissions));
+                    }
+
+                    // Directly display certificate for the completed mission
+                    showCertificate();
+                }
+            } else {
+                playSound('wrong');
+                document.getElementById('error-reset-modal').classList.remove('hidden');
+            }
+        }
+
+        // Modal Handler with optional custom action callback
+        let pendingModalAction = null;
+
+        function showProgressModal(title, msg, onContinue = null) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-message').textContent = msg;
+            pendingModalAction = onContinue;
+            document.getElementById('progress-modal').classList.remove('hidden');
+        }
+
+        function closeProgressModal() {
+            playSound('click');
+            document.getElementById('progress-modal').classList.add('hidden');
+            if (pendingModalAction) {
+                const action = pendingModalAction;
+                pendingModalAction = null;
+                action();
+            } else {
+                renderCurrentStep();
+            }
+        }
+
+        function closeErrorModal() {
+            playSound('click');
+            document.getElementById('error-reset-modal').classList.add('hidden');
+            currentQuestionIndex = 0; // Restart current mission from step 1
+            renderCurrentStep();
+        }
+
+        // Show Certificate for Specific Lesson
+        function showCertificate() {
+            const lesson = lessonsData.find(l => l.id === currentMissionId);
+            document.getElementById('cert-student-name').textContent = studentName;
+            document.getElementById('cert-student-class').textContent = studentClass;
+            document.getElementById('cert-lesson-title').textContent = lesson ? lesson.title : '';
+
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('certificate-screen').classList.remove('hidden');
+        }
+
+        // View Certificate directly from mission list
+        function showCertificateForLesson(lessonId) {
+            playSound('click');
+            currentMissionId = lessonId;
+            showCertificate();
+            document.getElementById('missions-screen').classList.add('hidden');
+        }
+
+        // Share Certificate Achievement via WhatsApp
+        function shareOnWhatsApp() {
+            playSound('click');
+            const lesson = lessonsData.find(l => l.id === currentMissionId);
+            const lessonTitle = lesson ? lesson.title : '';
+            const message = `🎉 *تَبَارَكَ اللهُ! إِنْجَازٌ جَدِيدٌ* 🌟\n\nأَتَمَّتْ الطَّالِبَةُ المُمَيَّزَةُ: *${studentName}*\nمِنْ الصَّفِّ: *${studentClass}*\n\nبِنَجَاحٍ وَإِتْقَانٍ مَهَمَّةَ دَرْسِ: *«${lessonTitle}»* فِي مبادرة *«المحقق الصغير»* بالمدرسة 185 الابتدائية! 🕵️‍♀️✨\n\nنَبَارِكُ لَهَا هَذَا التَّفَوُّقَ وَالإِتْقَانَ 👏🎓`;
+            const encodedText = encodeURIComponent(message);
+            window.open(`https://api.whatsapp.com/send?text=${encodedText}`, '_blank');
+        }
+
+        // Download Certificate as PNG Image
+        function downloadCertificate() {
+            playSound('click');
+            const certElement = document.getElementById('certificate-screen');
+            const noPrintButtons = certElement.querySelector('.no-print');
+            
+            if (noPrintButtons) noPrintButtons.style.display = 'none';
+
+            html2canvas(certElement, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            }).then(canvas => {
+                const image = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = image;
+                const lesson = lessonsData.find(l => l.id === currentMissionId);
+                const lessonName = lesson ? lesson.title : 'الدرس';
+                link.download = `شهادة_المحقق_الصغير_${lessonName}_${studentName || 'الطالبة'}.png`;
+                link.click();
+
+                if (noPrintButtons) noPrintButtons.style.display = 'flex';
+            }).catch(err => {
+                console.error("Certificate download error:", err);
+                if (noPrintButtons) noPrintButtons.style.display = 'flex';
+            });
+        }
+
+        // Back to Missions List
+        function backToMissions() {
+            playSound('click');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('certificate-screen').classList.add('hidden');
+            document.getElementById('missions-screen').classList.remove('hidden');
+            renderMissionsGrid();
+        }
+    </script>
+</body>
+</html>
